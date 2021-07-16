@@ -73,15 +73,15 @@ public class InfoRecipes {
 		addRecipe(new ItemStack(NCBlocks.blockFusionPlasma), "-Created in the Fusion-Reactor due to the incredibly-high temperatures--Will leak from electromagnets-which are not powered");
 		addRecipe(new ItemStack(NCBlocks.blockSteam), "-Can be used in any-machine or generator-that uses Steam");
 		
-		addRecipe(new ItemStack(NCItems.toughBow), "-A better version of the Bow--Does more damage and has a-higher durability--Can be repaired in an Anvil-using Tough Alloy");
-		addRecipe(new ItemStack(NCItems.pistol), "-Uses DU bullets--Deals big damage");
-		addRecipe(new ItemStack(NCItems.dUBullet), "-Pistol ammo");
-		addRecipe(new ItemStack(NCItems.toughAlloyPaxel), "-A multitool--Can be repaired in an Anvil-using Tough Alloy");
-		addRecipe(new ItemStack(NCItems.dUPaxel), "-A multitool--Can be repaired in an Anvil-using Depleted Uranium Plating");
+	//	addRecipe(new ItemStack(NCItems.toughBow), "-A better version of the Bow--Does more damage and has a-higher durability--Can be repaired in an Anvil-using Tough Alloy");
+	//	addRecipe(new ItemStack(NCItems.pistol), "-Uses DU bullets--Deals big damage");
+	//	addRecipe(new ItemStack(NCItems.dUBullet), "-Pistol ammo");
+	//	addRecipe(new ItemStack(NCItems.toughAlloyPaxel), "-A multitool--Can be repaired in an Anvil-using Tough Alloy");
+	//	addRecipe(new ItemStack(NCItems.dUPaxel), "-A multitool--Can be repaired in an Anvil-using Depleted Uranium Plating");
 		addRecipe(new ItemStack(NCItems.upgradeSpeed), "-Used to increase the-speed of machines--Stacked upgrades increase the-speed exponentially");
 		addRecipe(new ItemStack(NCItems.upgradeEnergy), "-Used to increase the-energy efficiency of machines--Stacked upgrades increase the-efficiency exponentially");
-		addRecipe(new ItemStack(NCItems.nuclearGrenade), "-A VERY deadly bomb--It is highly recommended-that this is kept off your-hotbar while not about-to be used");
-		addRecipe(new ItemStack(NCItems.portableEnderChest), "-Portable access to your-vanilla Ender Chest inventory");
+	//	addRecipe(new ItemStack(NCItems.nuclearGrenade), "-A VERY deadly bomb--It is highly recommended-that this is kept off your-hotbar while not about-to be used");
+	//	addRecipe(new ItemStack(NCItems.portableEnderChest), "-Portable access to your-vanilla Ender Chest inventory");
 		
 		addRecipe(new ItemStack(NCItems.recordArea51), "-Jimmy, with his newly-aquired map, must make-his way to the mines of-Area 51 to recover his-invisibility technology...");
 		addRecipe(new ItemStack(NCItems.recordNeighborhood), "-Jimmy's hometown: a quiet-and green place with-roads to many great-places such as Retroland-and Downtown...");
@@ -121,13 +121,13 @@ public class InfoRecipes {
 		coolerInfo(NCBlocks.heliumCoolerBlock, NuclearCraft.heliumCool, "Not affected by its-position in the structure");
 		coolerInfo(NCBlocks.coolantCoolerBlock, NuclearCraft.coolantCool, "Doubly effective when adjacent-to a Water Reactor Cooler");
 		/*
-		addRecipe(new ItemStack(NCItems.dominoes), "-Paul's Favourite: He'll-follow anyone he sees-carrying this in their hand...--Restores 16 hunger");
-		addRecipe(new ItemStack(NCItems.boiledEgg), "-Restores 5 hunger");
+	//	addRecipe(new ItemStack(NCItems.dominoes), "-Paul's Favourite: He'll-follow anyone he sees-carrying this in their hand...--Restores 16 hunger");
+	//	addRecipe(new ItemStack(NCItems.boiledEgg), "-Restores 5 hunger");
 		addRecipe(new ItemStack(NCItems.fuel, 1, 34), "-Right click on a water-source block with an-empty fluid cell to obtain");
 		addRecipe(new ItemStack(NCItems.fuel, 1, 45), "-Right click on a water-source block to-obtain a water cell");
 		
-		addRecipe(new ItemStack(NCItems.ricecake), "-Healthy meal,-especially with fish--Restores 4 hunger");
-		addRecipe(new ItemStack(NCItems.fishAndRicecake), "-At 8 in the morning he'll have-fish and a ricecake, at 10 he'll-have fish, at 12 he'll have fish-and a ricecake, at 2 he'll-have fish, at 4, just before he-trains, he'll have fish and a-ricecake, he'll train, he'll have-his fish, he'll come home and-have some more fish with a-ricecake and then have some-fish before he goes to bed");
+	//	addRecipe(new ItemStack(NCItems.ricecake), "-Healthy meal,-especially with fish--Restores 4 hunger");
+	//	addRecipe(new ItemStack(NCItems.fishAndRicecake), "-At 8 in the morning he'll have-fish and a ricecake, at 10 he'll-have fish, at 12 he'll have fish-and a ricecake, at 2 he'll-have fish, at 4, just before he-trains, he'll have fish and a-ricecake, he'll train, he'll have-his fish, he'll come home and-have some more fish with a-ricecake and then have some-fish before he goes to bed");
 		*/
 		addRecipe(new ItemStack(NCItems.fuel, 1, 35), "-Used to oxidise and-improve fission fuels");
 		addRecipe(new ItemStack(NCItems.fuel, 1, 36), "-Fusion fuel--Best combined with Boron11-or Lithium7");

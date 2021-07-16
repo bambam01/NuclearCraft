@@ -59,8 +59,8 @@ import nc.block.nuke.BlockAntimatterBomb;
 import nc.block.nuke.BlockAntimatterBombExploding;
 import nc.block.nuke.BlockEMP;
 import nc.block.nuke.BlockEMPExploding;
-import nc.block.nuke.BlockNuke;
-import nc.block.nuke.BlockNukeExploding;
+//import nc.block.nuke.BlockNuke;
+//import nc.block.nuke.BlockNukeExploding;
 import nc.block.quantum.BlockSimpleQuantum;
 import nc.block.reactor.BlockBlastBlock;
 import nc.block.reactor.BlockCellBlock;
@@ -74,13 +74,13 @@ import nc.block.reactor.BlockTubing2;
 import nc.block.storage.BlockLithiumIonBattery;
 import nc.block.storage.BlockVoltaicPile;
 import nc.entity.EntityAntimatterBombPrimed;
-import nc.entity.EntityBrian;
-import nc.entity.EntityBullet;
+//import nc.entity.EntityBrian;
+//import nc.entity.EntityBullet;
 import nc.entity.EntityEMPPrimed;
 import nc.entity.EntityNuclearGrenade;
 import nc.entity.EntityNuclearMonster;
-import nc.entity.EntityNukePrimed;
-import nc.entity.EntityPaul;
+//import nc.entity.EntityNukePrimed;
+//import nc.entity.EntityPaul;
 import nc.gui.GuiHandler;
 import nc.handler.AnvilRepairHandler;
 import nc.handler.BlockDropHandler;
@@ -89,29 +89,29 @@ import nc.handler.EntityHandler;
 import nc.handler.FuelHandler;
 import nc.item.ItemAntimatter;
 import nc.item.ItemBattery;
-import nc.item.ItemDominos;
-import nc.item.ItemEnderChest;
-import nc.item.ItemFoodNC;
+//import nc.item.ItemDominos;
+//import nc.item.ItemEnderChest;
+//import nc.item.ItemFoodNC;
 import nc.item.ItemFuel;
 import nc.item.ItemMaterial;
 import nc.item.ItemNC;
-import nc.item.ItemNuclearGrenade;
+//import nc.item.ItemNuclearGrenade;
 import nc.item.ItemPart;
-import nc.item.ItemPistol;
-import nc.item.ItemToughBow;
+//import nc.item.ItemPistol;
+//import nc.item.ItemToughBow;
 import nc.item.ItemUpgrade;
-import nc.item.NCAxe;
-import nc.item.NCHoe;
-import nc.item.NCItems;
-import nc.item.NCPaxel;
-import nc.item.NCPickaxe;
+//import nc.item.NCAxe;
+//import nc.item.NCHoe;
+//import nc.item.NCItems;
+//import nc.item.NCPaxel;
+//import nc.item.NCPickaxe;
 import nc.item.NCRecord;
-import nc.item.NCShovel;
-import nc.item.NCSword;
-import nc.item.armour.BoronArmour;
-import nc.item.armour.BronzeArmour;
-import nc.item.armour.DUArmour;
-import nc.item.armour.ToughArmour;
+//import nc.item.NCShovel;
+//import nc.item.NCSword;
+//import nc.item.armour.BoronArmour;
+//import nc.item.armour.BronzeArmour;
+//import nc.item.armour.DUArmour;
+//import nc.item.armour.ToughArmour;
 import nc.itemblock.accelerator.ItemBlockSuperElectromagnet;
 import nc.itemblock.accelerator.ItemBlockSupercooler;
 import nc.itemblock.accelerator.ItemBlockSynchrotron;
@@ -1054,18 +1054,18 @@ public class NuclearCraft {
 		RecipeSorter.register("nuclearcraft:workspaceshapeless", NuclearWorkspaceShapelessOreRecipe.class, Category.SHAPELESS, "after:minecraft:shapeless");*/
 		
 		// Tool Materials
-		ToolMaterial Bronze = EnumHelper.addToolMaterial("Bronze", bronzeHarvestLevel, bronzeDurability, bronzeSpeed, bronzeDamage, 10).setRepairItem(new ItemStack(NCItems.material, 1, 6));
-		ToolMaterial ToughAlloy = EnumHelper.addToolMaterial("ToughAlloy", toughHarvestLevel, toughDurability, toughSpeed, toughDamage, 10).setRepairItem(new ItemStack(NCItems.material, 1, 7));
-		ToolMaterial ToughPaxel = EnumHelper.addToolMaterial("ToughPaxel", tPHarvestLevel, tPDurability, tPSpeed, tPDamage, 10).setRepairItem(new ItemStack(NCItems.material, 1, 7));
-		ToolMaterial dU = EnumHelper.addToolMaterial("dU", dUHarvestLevel, dUDurability, dUSpeed, dUDamage, 50).setRepairItem(new ItemStack(NCItems.parts, 1, 8));
-		ToolMaterial dUPaxel = EnumHelper.addToolMaterial("dUPaxel", dUPHarvestLevel, dUPDurability, dUPSpeed, dUPDamage, 50).setRepairItem(new ItemStack(NCItems.parts, 1, 8));
-		ToolMaterial Boron = EnumHelper.addToolMaterial("Boron", boronHarvestLevel, boronDurability, boronSpeed, boronDamage, 5).setRepairItem(new ItemStack(NCItems.material, 1, 43));
+		//ToolMaterial Bronze = EnumHelper.addToolMaterial("Bronze", bronzeHarvestLevel, bronzeDurability, bronzeSpeed, bronzeDamage, 10).setRepairItem(new ItemStack(NCItems.material, 1, 6));
+		//ToolMaterial ToughAlloy = EnumHelper.addToolMaterial("ToughAlloy", toughHarvestLevel, toughDurability, toughSpeed, toughDamage, 10).setRepairItem(new ItemStack(NCItems.material, 1, 7));
+		//ToolMaterial ToughPaxel = EnumHelper.addToolMaterial("ToughPaxel", tPHarvestLevel, tPDurability, tPSpeed, tPDamage, 10).setRepairItem(new ItemStack(NCItems.material, 1, 7));
+		//ToolMaterial dU = EnumHelper.addToolMaterial("dU", dUHarvestLevel, dUDurability, dUSpeed, dUDamage, 50).setRepairItem(new ItemStack(NCItems.parts, 1, 8));
+		//ToolMaterial dUPaxel = EnumHelper.addToolMaterial("dUPaxel", dUPHarvestLevel, dUPDurability, dUPSpeed, dUPDamage, 50).setRepairItem(new ItemStack(NCItems.parts, 1, 8));
+		//ToolMaterial Boron = EnumHelper.addToolMaterial("Boron", boronHarvestLevel, boronDurability, boronSpeed, boronDamage, 5).setRepairItem(new ItemStack(NCItems.material, 1, 43));
 		
 		// Armour Materials - 12, 17, 12, 8 - 5, 8, 7, 4
-		ArmorMaterial ToughArmorMaterial = EnumHelper.addArmorMaterial("ToughArmorMaterial", 40, (workspace ? new int [] {4, 8, 5, 3} : new int [] {3, 8, 6, 3}), 10);
-		ArmorMaterial BoronArmorMaterial = EnumHelper.addArmorMaterial("BoronArmorMaterial", 30, new int [] {3, 7, 5, 2}, 5);
-		ArmorMaterial BronzeArmorMaterial = EnumHelper.addArmorMaterial("BronzeArmorMaterial", 20, new int [] {2, 6, 5, 2}, 10);
-		ArmorMaterial dUArmorMaterial = EnumHelper.addArmorMaterial("dUArmorMaterial", 80, (workspace ? new int [] {5, 8, 5, 3} : new int [] {4, 8, 6, 3}), 50);
+		//ArmorMaterial ToughArmorMaterial = EnumHelper.addArmorMaterial("ToughArmorMaterial", 40, (workspace ? new int [] {4, 8, 5, 3} : new int [] {3, 8, 6, 3}), 10);
+		//ArmorMaterial BoronArmorMaterial = EnumHelper.addArmorMaterial("BoronArmorMaterial", 30, new int [] {3, 7, 5, 2}, 5);
+		//ArmorMaterial BronzeArmorMaterial = EnumHelper.addArmorMaterial("BronzeArmorMaterial", 20, new int [] {2, 6, 5, 2}, 10);
+		//ArmorMaterial dUArmorMaterial = EnumHelper.addArmorMaterial("dUArmorMaterial", 80, (workspace ? new int [] {5, 8, 5, 3} : new int [] {4, 8, 6, 3}), 50);
 		
 		// Fluid Registry
 		liquidHelium = new FluidHelium("liquidHelium");
@@ -1357,121 +1357,121 @@ public class NuclearCraft {
 		GameRegistry.registerItem(NCItems.material = new ItemMaterial(), "material");
 		GameRegistry.registerItem(NCItems.parts = new ItemPart(), "parts");
 		
-		NCItems.dominoes = new ItemDominos(16, 1.4F, false, "dominoes", "Paul's favourite - he'll follow anyone", "he sees carrying this in their hand...", "Restores 16 hunger.");
-		GameRegistry.registerItem(NCItems.dominoes, "dominoes");
-		NCItems.boiledEgg = new ItemFoodNC(5, 0.6F, false, "boiledEgg", "A tasty snack that restores 5 hunger.");
-		GameRegistry.registerItem(NCItems.boiledEgg, "boiledEgg");
+		//NCItems.dominoes = new ItemDominos(16, 1.4F, false, "dominoes", "Paul's favourite - he'll follow anyone", "he sees carrying this in their hand...", "Restores 16 hunger.");
+		//GameRegistry.registerItem(NCItems.dominoes, "dominoes");
+		//NCItems.boiledEgg = new ItemFoodNC(5, 0.6F, false, "boiledEgg", "A tasty snack that restores 5 hunger.");
+		//GameRegistry.registerItem(NCItems.boiledEgg, "boiledEgg");
 		
-		NCItems.ricecake = new ItemFoodNC(4, 0.4F, false, "ricecake", "A healthy meal, especially with fish. Restores 4 hunger.");
-		GameRegistry.registerItem(NCItems.ricecake, "ricecake");
-		NCItems.fishAndRicecake = new ItemFoodNC(9, 1.0F, false, "fishAndRicecake", "At 8 in the morning he'll have fish and a ricecake, at 10 he'll have fish,", "at 12 he'll have fish and a ricecake, at 2 he'll have fish, at 4, just", "before he trains, he'll have fish and a ricecake, he'll train, he'll have", "his fish, he'll come home and have some more fish with a ricecake and then", "have some fish before he goes to bed.");
-		GameRegistry.registerItem(NCItems.fishAndRicecake, "fishAndRicecake");
+		//NCItems.ricecake = new ItemFoodNC(4, 0.4F, false, "ricecake", "A healthy meal, especially with fish. Restores 4 hunger.");
+		//GameRegistry.registerItem(NCItems.ricecake, "ricecake");
+		//NCItems.fishAndRicecake = new ItemFoodNC(9, 1.0F, false, "fishAndRicecake", "At 8 in the morning he'll have fish and a ricecake, at 10 he'll have fish,", "at 12 he'll have fish and a ricecake, at 2 he'll have fish, at 4, just", "before he trains, he'll have fish and a ricecake, he'll train, he'll have", "his fish, he'll come home and have some more fish with a ricecake and then", "have some fish before he goes to bed.");
+		//GameRegistry.registerItem(NCItems.fishAndRicecake, "fishAndRicecake");
 		
 		NCItems.upgradeSpeed = new ItemUpgrade("upgradeSpeed", "Used to increase the speed of machines.", "Stacked upgrades increase the speed exponentially.").setMaxStackSize(8);
 		GameRegistry.registerItem(NCItems.upgradeSpeed, "upgradeSpeed");
 		NCItems.upgradeEnergy = new ItemUpgrade("upgradeEnergy", "Used to increase the energy efficiency of machines.", "Stacked upgrades increase the efficiency exponentially.").setMaxStackSize(8);
 		GameRegistry.registerItem(NCItems.upgradeEnergy, "upgradeEnergy");
 		
-		NCItems.nuclearGrenade = new ItemNuclearGrenade("nuclearGrenade", "A VERY deadly bomb. It is highly recommended", "that this is kept off your hotbar while not", "about to be used.");
-		GameRegistry.registerItem(NCItems.nuclearGrenade, "nuclearGrenade");
-		NCItems.nuclearGrenadeThrown = new ItemNC("weapons", "nuclearGrenadeThrown", false);
-		GameRegistry.registerItem(NCItems.nuclearGrenadeThrown, "nuclearGrenadeThrown");
+		//NCItems.nuclearGrenade = new ItemNuclearGrenade("nuclearGrenade", "A VERY deadly bomb. It is highly recommended", "that this is kept off your hotbar while not", "about to be used.");
+		//GameRegistry.registerItem(NCItems.nuclearGrenade, "nuclearGrenade");
+		//NCItems.nuclearGrenadeThrown = new ItemNC("weapons", "nuclearGrenadeThrown", false);
+		//GameRegistry.registerItem(NCItems.nuclearGrenadeThrown, "nuclearGrenadeThrown");
 		
-		NCItems.portableEnderChest = new ItemEnderChest("portableEnderChest", "Portable access to your Ender Chest.").setMaxStackSize(1);
-		GameRegistry.registerItem(NCItems.portableEnderChest, "portableEnderChest");
+		//NCItems.portableEnderChest = new ItemEnderChest("portableEnderChest", "Portable access to your Ender Chest.").setMaxStackSize(1);
+		//GameRegistry.registerItem(NCItems.portableEnderChest, "portableEnderChest");
 		
 		// Tool Registry
-		NCItems.bronzePickaxe = new NCPickaxe(Bronze, "bronzePickaxe", "Can be repaired in an Anvil using Bronze.");
-		GameRegistry.registerItem(NCItems.bronzePickaxe, "bronzePickaxe");
-		NCItems.bronzeShovel = new NCShovel(Bronze, "bronzeShovel", "Can be repaired in an Anvil using Bronze.");
-		GameRegistry.registerItem(NCItems.bronzeShovel, "bronzeShovel");
-		NCItems.bronzeAxe = new NCAxe(Bronze, "bronzeAxe", "Can be repaired in an Anvil using Bronze.");
-		GameRegistry.registerItem(NCItems.bronzeAxe, "bronzeAxe");
-		NCItems.bronzeHoe = new NCHoe(Bronze, "bronzeHoe", "Can be repaired in an Anvil using Bronze.");
-		GameRegistry.registerItem(NCItems.bronzeHoe, "bronzeHoe");
-		NCItems.bronzeSword = new NCSword(Bronze, "bronzeSword", "Can be repaired in an Anvil using Bronze.");
-		GameRegistry.registerItem(NCItems.bronzeSword, "bronzeSword");
+		//NCItems.bronzePickaxe = new NCPickaxe(Bronze, "bronzePickaxe", "Can be repaired in an Anvil using Bronze.");
+		//GameRegistry.registerItem(NCItems.bronzePickaxe, "bronzePickaxe");
+		//NCItems.bronzeShovel = new NCShovel(Bronze, "bronzeShovel", "Can be repaired in an Anvil using Bronze.");
+		//GameRegistry.registerItem(NCItems.bronzeShovel, "bronzeShovel");
+		//NCItems.bronzeAxe = new NCAxe(Bronze, "bronzeAxe", "Can be repaired in an Anvil using Bronze.");
+		//GameRegistry.registerItem(NCItems.bronzeAxe, "bronzeAxe");
+		//NCItems.bronzeHoe = new NCHoe(Bronze, "bronzeHoe", "Can be repaired in an Anvil using Bronze.");
+		//GameRegistry.registerItem(NCItems.bronzeHoe, "bronzeHoe");
+		//NCItems.bronzeSword = new NCSword(Bronze, "bronzeSword", "Can be repaired in an Anvil using Bronze.");
+		//GameRegistry.registerItem(NCItems.bronzeSword, "bronzeSword");
 		
-		NCItems.boronPickaxe = new NCPickaxe(Boron, "boronPickaxe", "Can be repaired in an Anvil using Boron.");
-		GameRegistry.registerItem(NCItems.boronPickaxe, "boronPickaxe");
-		NCItems.boronShovel = new NCShovel(Boron, "boronShovel", "Can be repaired in an Anvil using Boron.");
-		GameRegistry.registerItem(NCItems.boronShovel, "boronShovel");
-		NCItems.boronAxe = new NCAxe(Boron, "boronAxe", "Can be repaired in an Anvil using Boron.");
-		GameRegistry.registerItem(NCItems.boronAxe, "boronAxe");
-		NCItems.boronHoe = new NCHoe(Boron, "boronHoe", "Can be repaired in an Anvil using Boron.");
-		GameRegistry.registerItem(NCItems.boronHoe, "boronHoe");
-		NCItems.boronSword = new NCSword(Boron, "boronSword", "Can be repaired in an Anvil using Boron.");
-		GameRegistry.registerItem(NCItems.boronSword, "boronSword");
+		//NCItems.boronPickaxe = new NCPickaxe(Boron, "boronPickaxe", "Can be repaired in an Anvil using Boron.");
+		//GameRegistry.registerItem(NCItems.boronPickaxe, "boronPickaxe");
+		//NCItems.boronShovel = new NCShovel(Boron, "boronShovel", "Can be repaired in an Anvil using Boron.");
+		//GameRegistry.registerItem(NCItems.boronShovel, "boronShovel");
+		//NCItems.boronAxe = new NCAxe(Boron, "boronAxe", "Can be repaired in an Anvil using Boron.");
+		//GameRegistry.registerItem(NCItems.boronAxe, "boronAxe");
+		//NCItems.boronHoe = new NCHoe(Boron, "boronHoe", "Can be repaired in an Anvil using Boron.");
+		//GameRegistry.registerItem(NCItems.boronHoe, "boronHoe");
+		//NCItems.boronSword = new NCSword(Boron, "boronSword", "Can be repaired in an Anvil using Boron.");
+		//GameRegistry.registerItem(NCItems.boronSword, "boronSword");
 		
-		NCItems.toughAlloyPickaxe = new NCPickaxe(ToughAlloy, "toughAlloyPickaxe", "Can be repaired in an Anvil using Tough Alloy.");
-		GameRegistry.registerItem(NCItems.toughAlloyPickaxe, "toughAlloyPickaxe");
-		NCItems.toughAlloyShovel = new NCShovel(ToughAlloy, "toughAlloyShovel", "Can be repaired in an Anvil using Tough Alloy.");
-		GameRegistry.registerItem(NCItems.toughAlloyShovel, "toughAlloyShovel");
-		NCItems.toughAlloyAxe = new NCAxe(ToughAlloy, "toughAlloyAxe", "Can be repaired in an Anvil using Tough Alloy.");
-		GameRegistry.registerItem(NCItems.toughAlloyAxe, "toughAlloyAxe");
-		NCItems.toughAlloyHoe = new NCHoe(ToughAlloy, "toughAlloyHoe", "Can be repaired in an Anvil using Tough Alloy.");
-		GameRegistry.registerItem(NCItems.toughAlloyHoe, "toughAlloyHoe");
-		NCItems.toughAlloySword = new NCSword(ToughAlloy, "toughAlloySword", "Can be repaired in an Anvil using Tough Alloy.");
-		GameRegistry.registerItem(NCItems.toughAlloySword, "toughAlloySword");
-		NCItems.toughAlloyPaxel = new NCPaxel(ToughPaxel, "toughAlloyPaxel", "A multitool that can be repaired", "in an Anvil using Tough Alloy.");
-		GameRegistry.registerItem(NCItems.toughAlloyPaxel, "toughAlloyPaxel");
+		//NCItems.toughAlloyPickaxe = new NCPickaxe(ToughAlloy, "toughAlloyPickaxe", "Can be repaired in an Anvil using Tough Alloy.");
+		//GameRegistry.registerItem(NCItems.toughAlloyPickaxe, "toughAlloyPickaxe");
+		//NCItems.toughAlloyShovel = new NCShovel(ToughAlloy, "toughAlloyShovel", "Can be repaired in an Anvil using Tough Alloy.");
+		//GameRegistry.registerItem(NCItems.toughAlloyShovel, "toughAlloyShovel");
+		//NCItems.toughAlloyAxe = new NCAxe(ToughAlloy, "toughAlloyAxe", "Can be repaired in an Anvil using Tough Alloy.");
+		//GameRegistry.registerItem(NCItems.toughAlloyAxe, "toughAlloyAxe");
+		//NCItems.toughAlloyHoe = new NCHoe(ToughAlloy, "toughAlloyHoe", "Can be repaired in an Anvil using Tough Alloy.");
+		//GameRegistry.registerItem(NCItems.toughAlloyHoe, "toughAlloyHoe");
+		//NCItems.toughAlloySword = new NCSword(ToughAlloy, "toughAlloySword", "Can be repaired in an Anvil using Tough Alloy.");
+		//GameRegistry.registerItem(NCItems.toughAlloySword, "toughAlloySword");
+		//NCItems.toughAlloyPaxel = new NCPaxel(ToughPaxel, "toughAlloyPaxel", "A multitool that can be repaired", "in an Anvil using Tough Alloy.");
+		//GameRegistry.registerItem(NCItems.toughAlloyPaxel, "toughAlloyPaxel");
 		
-		NCItems.dUPickaxe = new NCPickaxe(dU, "dUPickaxe", "Can be repaired in an Anvil using Depleted Uranium Plating.");
-		GameRegistry.registerItem(NCItems.dUPickaxe, "dUPickaxe");
-		NCItems.dUShovel = new NCShovel(dU, "dUShovel", "Can be repaired in an Anvil using Depleted Uranium Plating.");
-		GameRegistry.registerItem(NCItems.dUShovel, "dUShovel");
-		NCItems.dUAxe = new NCAxe(dU, "dUAxe", "Can be repaired in an Anvil using Depleted Uranium Plating.");
-		GameRegistry.registerItem(NCItems.dUAxe, "dUAxe");
-		NCItems.dUHoe = new NCHoe(dU, "dUHoe", "Can be repaired in an Anvil using Depleted Uranium Plating.");
-		GameRegistry.registerItem(NCItems.dUHoe, "dUHoe");
-		NCItems.dUSword = new NCSword(dU, "dUSword", "Can be repaired in an Anvil using Depleted Uranium Plating.");
-		GameRegistry.registerItem(NCItems.dUSword, "dUSword");
-		NCItems.dUPaxel = new NCPaxel(dUPaxel, "dUPaxel", "A multitool that can be repaired in", "an Anvil using Depleted Uranium Plating.");
-		GameRegistry.registerItem(NCItems.dUPaxel, "dUPaxel");
+		//NCItems.dUPickaxe = new NCPickaxe(dU, "dUPickaxe", "Can be repaired in an Anvil using Depleted Uranium Plating.");
+		//GameRegistry.registerItem(NCItems.dUPickaxe, "dUPickaxe");
+		//NCItems.dUShovel = new NCShovel(dU, "dUShovel", "Can be repaired in an Anvil using Depleted Uranium Plating.");
+		//GameRegistry.registerItem(NCItems.dUShovel, "dUShovel");
+		//NCItems.dUAxe = new NCAxe(dU, "dUAxe", "Can be repaired in an Anvil using Depleted Uranium Plating.");
+		//GameRegistry.registerItem(NCItems.dUAxe, "dUAxe");
+		//NCItems.dUHoe = new NCHoe(dU, "dUHoe", "Can be repaired in an Anvil using Depleted Uranium Plating.");
+		//GameRegistry.registerItem(NCItems.dUHoe, "dUHoe");
+		//NCItems.dUSword = new NCSword(dU, "dUSword", "Can be repaired in an Anvil using Depleted Uranium Plating.");
+		//GameRegistry.registerItem(NCItems.dUSword, "dUSword");
+		//NCItems.dUPaxel = new NCPaxel(dUPaxel, "dUPaxel", "A multitool that can be repaired in", "an Anvil using Depleted Uranium Plating.");
+		//GameRegistry.registerItem(NCItems.dUPaxel, "dUPaxel");
 		
-		NCItems.toughBow = new ItemToughBow("toughBow", "A better version of the vanilla bow - it does", "more damage and has a higher durability.", "Can be repaired in an Anvil using Tough Alloy.").setMaxStackSize(1);
-		GameRegistry.registerItem(NCItems.toughBow, "toughBow");
-		NCItems.pistol = new ItemPistol("pistol", "Uses DU bullets as ammunition.", "Deals a large amount of damage.");
-		GameRegistry.registerItem(NCItems.pistol, "pistol");
-		NCItems.dUBullet = new ItemNC("tools", "dUBullet", "Ammo for the Pistol.");
-		GameRegistry.registerItem(NCItems.dUBullet, "dUBullet");
+		//NCItems.toughBow = new ItemToughBow("toughBow", "A better version of the vanilla bow - it does", "more damage and has a higher durability.", "Can be repaired in an Anvil using Tough Alloy.").setMaxStackSize(1);
+		//GameRegistry.registerItem(NCItems.toughBow, "toughBow");
+		//NCItems.pistol = new ItemPistol("pistol", "Uses DU bullets as ammunition.", "Deals a large amount of damage.");
+		//GameRegistry.registerItem(NCItems.pistol, "pistol");
+		//NCItems.dUBullet = new ItemNC("tools", "dUBullet", "Ammo for the Pistol.");
+		//GameRegistry.registerItem(NCItems.dUBullet, "dUBullet");
 		
 		//Armor Registry
-		NCItems.toughHelm = new ToughArmour(ToughArmorMaterial, toughHelmID, 0, "toughHelm");
-		GameRegistry.registerItem(NCItems.toughHelm, "toughHelm");
-		NCItems.toughChest = new ToughArmour(ToughArmorMaterial, toughChestID, 1, "toughChest");
-		GameRegistry.registerItem(NCItems.toughChest, "toughChest");
-		NCItems.toughLegs = new ToughArmour(ToughArmorMaterial, toughLegsID, 2, "toughLegs");
-		GameRegistry.registerItem(NCItems.toughLegs, "toughLegs");
-		NCItems.toughBoots = new ToughArmour(ToughArmorMaterial, toughBootsID, 3, "toughBoots");
-		GameRegistry.registerItem(NCItems.toughBoots, "toughBoots");
+		//NCItems.toughHelm = new ToughArmour(ToughArmorMaterial, toughHelmID, 0, "toughHelm");
+		//GameRegistry.registerItem(NCItems.toughHelm, "toughHelm");
+		//NCItems.toughChest = new ToughArmour(ToughArmorMaterial, toughChestID, 1, "toughChest");
+		//GameRegistry.registerItem(NCItems.toughChest, "toughChest");
+		//NCItems.toughLegs = new ToughArmour(ToughArmorMaterial, toughLegsID, 2, "toughLegs");
+		//GameRegistry.registerItem(NCItems.toughLegs, "toughLegs");
+		//NCItems.toughBoots = new ToughArmour(ToughArmorMaterial, toughBootsID, 3, "toughBoots");
+		//GameRegistry.registerItem(NCItems.toughBoots, "toughBoots");
 		
-		NCItems.boronHelm = new BoronArmour(BoronArmorMaterial, boronHelmID, 0, "boronHelm");
-		GameRegistry.registerItem(NCItems.boronHelm, "boronHelm");
-		NCItems.boronChest = new BoronArmour(BoronArmorMaterial, boronChestID, 1, "boronChest");
-		GameRegistry.registerItem(NCItems.boronChest, "boronChest");
-		NCItems.boronLegs = new BoronArmour(BoronArmorMaterial, boronLegsID, 2, "boronLegs");
-		GameRegistry.registerItem(NCItems.boronLegs, "boronLegs");
-		NCItems.boronBoots = new BoronArmour(BoronArmorMaterial, boronBootsID, 3, "boronBoots");
-		GameRegistry.registerItem(NCItems.boronBoots, "boronBoots");
+		//NCItems.boronHelm = new BoronArmour(BoronArmorMaterial, boronHelmID, 0, "boronHelm");
+		//GameRegistry.registerItem(NCItems.boronHelm, "boronHelm");
+		//NCItems.boronChest = new BoronArmour(BoronArmorMaterial, boronChestID, 1, "boronChest");
+		//GameRegistry.registerItem(NCItems.boronChest, "boronChest");
+		//NCItems.boronLegs = new BoronArmour(BoronArmorMaterial, boronLegsID, 2, "boronLegs");
+		//GameRegistry.registerItem(NCItems.boronLegs, "boronLegs");
+		//NCItems.boronBoots = new BoronArmour(BoronArmorMaterial, boronBootsID, 3, "boronBoots");
+		//GameRegistry.registerItem(NCItems.boronBoots, "boronBoots");
 		
-		NCItems.bronzeHelm = new BronzeArmour(BronzeArmorMaterial, bronzeHelmID, 0, "bronzeHelm");
-		GameRegistry.registerItem(NCItems.bronzeHelm, "bronzeHelm");
-		NCItems.bronzeChest = new BronzeArmour(BronzeArmorMaterial, bronzeChestID, 1, "bronzeChest");
-		GameRegistry.registerItem(NCItems.bronzeChest, "bronzeChest");
-		NCItems.bronzeLegs = new BronzeArmour(BronzeArmorMaterial, bronzeLegsID, 2, "bronzeLegs");
-		GameRegistry.registerItem(NCItems.bronzeLegs, "bronzeLegs");
-		NCItems.bronzeBoots = new BronzeArmour(BronzeArmorMaterial, bronzeBootsID, 3, "bronzeBoots");
-		GameRegistry.registerItem(NCItems.bronzeBoots, "bronzeBoots");
+		//NCItems.bronzeHelm = new BronzeArmour(BronzeArmorMaterial, bronzeHelmID, 0, "bronzeHelm");
+		//GameRegistry.registerItem(NCItems.bronzeHelm, "bronzeHelm");
+		//NCItems.bronzeChest = new BronzeArmour(BronzeArmorMaterial, bronzeChestID, 1, "bronzeChest");
+		//GameRegistry.registerItem(NCItems.bronzeChest, "bronzeChest");
+		//NCItems.bronzeLegs = new BronzeArmour(BronzeArmorMaterial, bronzeLegsID, 2, "bronzeLegs");
+		//GameRegistry.registerItem(NCItems.bronzeLegs, "bronzeLegs");
+		//NCItems.bronzeBoots = new BronzeArmour(BronzeArmorMaterial, bronzeBootsID, 3, "bronzeBoots");
+		//GameRegistry.registerItem(NCItems.bronzeBoots, "bronzeBoots");
 		
-		NCItems.dUHelm = new DUArmour(dUArmorMaterial, dUHelmID, 0, "dUHelm");
-		GameRegistry.registerItem(NCItems.dUHelm, "dUHelm");
-		NCItems.dUChest = new DUArmour(dUArmorMaterial, dUChestID, 1, "dUChest");
-		GameRegistry.registerItem(NCItems.dUChest, "dUChest");
-		NCItems.dULegs = new DUArmour(dUArmorMaterial, dULegsID, 2, "dULegs");
-		GameRegistry.registerItem(NCItems.dULegs, "dULegs");
-		NCItems.dUBoots = new DUArmour(dUArmorMaterial, dUBootsID, 3, "dUBoots");
-		GameRegistry.registerItem(NCItems.dUBoots, "dUBoots");
+		//NCItems.dUHelm = new DUArmour(dUArmorMaterial, dUHelmID, 0, "dUHelm");
+		//GameRegistry.registerItem(NCItems.dUHelm, "dUHelm");
+		//NCItems.dUChest = new DUArmour(dUArmorMaterial, dUChestID, 1, "dUChest");
+		//GameRegistry.registerItem(NCItems.dUChest, "dUChest");
+		//NCItems.dULegs = new DUArmour(dUArmorMaterial, dULegsID, 2, "dULegs");
+		//GameRegistry.registerItem(NCItems.dULegs, "dULegs");
+		//NCItems.dUBoots = new DUArmour(dUArmorMaterial, dUBootsID, 3, "dUBoots");
+		//GameRegistry.registerItem(NCItems.dUBoots, "dUBoots");
 		
 		//Records
 		NCItems.recordPractice = new NCRecord(0, "Practice", "recordPractice", "Whenever Jimmy has some new discoveries", "to test out, his virtual practice labs are", "the best places to see what's possible...");
@@ -1489,7 +1489,7 @@ public class NuclearCraft {
 		GameRegistry.registerItem(NCItems.blank, "blank");
 		
 		//Antimatter
-		NCItems.antimatter = new ItemAntimatter("antimatter", "This is a temporary product of the Synchrotron.", "DO NOT drop this on the floor, or your base...", "...may go sadface...");
+		NCItems.antimatter = new ItemAntimatter("antimatter", "This is a product of the Synchrotron.", "DO NOT drop this on the floor, or your base...", "...may go sadface...");
 		GameRegistry.registerItem(NCItems.antimatter, "antimatter");
 		
 		//Batteries
@@ -1587,32 +1587,32 @@ public class NuclearCraft {
 		GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.voltaicPile, true, new Object[] {"PCP", "PMP", 'P', "plateBasic", 'C', "blockCopper", 'M', "blockMagnesium"}));
 	
 		// Tool Crafting Recipes
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzePickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "ingotBronze", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeShovel, true, new Object[] {"X", "S", "S", 'X', "ingotBronze", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeAxe, true, new Object[] {"XX", "XS", " S", 'X', "ingotBronze", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeAxe, true, new Object[] {"XX", "SX", "S ", 'X', "ingotBronze", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeHoe, true, new Object[] {"XX", "S ", "S ", 'X', "ingotBronze", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeHoe, true, new Object[] {"XX", " S", " S", 'X', "ingotBronze", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeSword, true, new Object[] {"X", "X", "S", 'X', "ingotBronze", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzePickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "ingotBronze", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeShovel, true, new Object[] {"X", "S", "S", 'X', "ingotBronze", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeAxe, true, new Object[] {"XX", "XS", " S", 'X', "ingotBronze", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeAxe, true, new Object[] {"XX", "SX", "S ", 'X', "ingotBronze", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeHoe, true, new Object[] {"XX", "S ", "S ", 'X', "ingotBronze", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeHoe, true, new Object[] {"XX", " S", " S", 'X', "ingotBronze", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.bronzeSword, true, new Object[] {"X", "X", "S", 'X', "ingotBronze", 'S', Items.stick}));
 		
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronPickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "ingotBoron", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronShovel, true, new Object[] {"X", "S", "S", 'X', "ingotBoron", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronAxe, true, new Object[] {"XX", "XS", " S", 'X', "ingotBoron", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronAxe, true, new Object[] {"XX", "SX", "S ", 'X', "ingotBoron", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronHoe, true, new Object[] {"XX", "S ", "S ", 'X', "ingotBoron", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronHoe, true, new Object[] {"XX", " S", " S", 'X', "ingotBoron", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronSword, true, new Object[] {"X", "X", "S", 'X', "ingotBoron", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronPickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "ingotBoron", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronShovel, true, new Object[] {"X", "S", "S", 'X', "ingotBoron", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronAxe, true, new Object[] {"XX", "XS", " S", 'X', "ingotBoron", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronAxe, true, new Object[] {"XX", "SX", "S ", 'X', "ingotBoron", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronHoe, true, new Object[] {"XX", "S ", "S ", 'X', "ingotBoron", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronHoe, true, new Object[] {"XX", " S", " S", 'X', "ingotBoron", 'S', Items.stick}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.boronSword, true, new Object[] {"X", "X", "S", 'X', "ingotBoron", 'S', Items.stick}));
 		
 		// Armour Crafting Recipes
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronHelm, 1), true, new Object[] {"XXX", "X X", 'X', "ingotBoron"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "ingotBoron"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronLegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "ingotBoron"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronBoots, 1), true, new Object[] {"X X", "X X", 'X', "ingotBoron"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronHelm, 1), true, new Object[] {"XXX", "X X", 'X', "ingotBoron"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "ingotBoron"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronLegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "ingotBoron"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.boronBoots, 1), true, new Object[] {"X X", "X X", 'X', "ingotBoron"}));
 		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeHelm, 1), true, new Object[] {"XXX", "X X", 'X', "ingotBronze"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "ingotBronze"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeLegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "ingotBronze"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeBoots, 1), true, new Object[] {"X X", "X X", 'X', "ingotBronze"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeHelm, 1), true, new Object[] {"XXX", "X X", 'X', "ingotBronze"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "ingotBronze"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeLegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "ingotBronze"}));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.bronzeBoots, 1), true, new Object[] {"X X", "X X", 'X', "ingotBronze"}));
 	
 		// Simple Shapeless Crafting Recipes
 		GameRegistry.addShapelessRecipe(new ItemStack(NCItems.material, 9, 4), new Object[] {new ItemStack(NCBlocks.blockBlock, 1, 4)});
@@ -1794,30 +1794,30 @@ public class NuclearCraft {
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.superElectromagnetIdle, true, new Object[] {"AAA", "BCB", "AAA", 'A', "plateAdvanced", 'B', new ItemStack(NCItems.parts, 1, 17), 'C', "ingotTough"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.synchrotronIdle, true, new Object[] {"AAA", "BCB", "AAA", 'A', NCBlocks.superElectromagnetIdle, 'B', "plateAdvanced", 'C', NCBlocks.machineBlock}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.supercoolerIdle, true, new Object[] {"AAA", "BCB", "AAA", 'A', "plateAdvanced", 'B', new ItemStack(NCItems.parts, 1, 13), 'C', "universalReactant"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyPickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "ingotTough", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyShovel, true, new Object[] {"X", "S", "S", 'X', "ingotTough", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyAxe, true, new Object[] {"XX", "XS", " S", 'X', "ingotTough", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyAxe, true, new Object[] {"XX", "SX", "S ", 'X', "ingotTough", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyHoe, true, new Object[] {"XX", "S ", "S ", 'X', "ingotTough", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyHoe, true, new Object[] {"XX", " S", " S", 'X', "ingotTough", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloySword, true, new Object[] {"X", "X", "S", 'X', "ingotTough", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyPaxel, true, new Object[] {"ASP", "HIW", " I ", 'I', "ingotIron", 'A', NCItems.toughAlloyAxe, 'S', NCItems.toughAlloyShovel, 'P', NCItems.toughAlloyPickaxe, 'H', NCItems.toughAlloyHoe, 'W', NCItems.toughAlloySword}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUPickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "plateDU", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUShovel, true, new Object[] {"X", "S", "S", 'X', "plateDU", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUAxe, true, new Object[] {"XX", "XS", " S", 'X', "plateDU", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUAxe, true, new Object[] {"XX", "SX", "S ", 'X', "plateDU", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUHoe, true, new Object[] {"XX", "S ", "S ", 'X', "plateDU", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUHoe, true, new Object[] {"XX", " S", " S", 'X', "plateDU", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUSword, true, new Object[] {"X", "X", "S", 'X', "plateDU", 'S', "ingotIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUPaxel, true, new Object[] {"ASP", "HIW", " I ", 'I', "ingotIron", 'A', NCItems.dUAxe, 'S', NCItems.dUShovel, 'P', NCItems.dUPickaxe, 'H', NCItems.dUHoe, 'W', NCItems.dUSword}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughHelm, 1), true, new Object[] {"XXX", "X X", 'X', "ingotTough"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "ingotTough"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughLegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "ingotTough"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughBoots, 1), true, new Object[] {"X X", "X X", 'X', "ingotTough"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUHelm, 1), true, new Object[] {"XXX", "X X", 'X', "plateDU"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "plateDU"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dULegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "plateDU"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUBoots, 1), true, new Object[] {"X X", "X X", 'X', "plateDU"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyPickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "ingotTough", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyShovel, true, new Object[] {"X", "S", "S", 'X', "ingotTough", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyAxe, true, new Object[] {"XX", "XS", " S", 'X', "ingotTough", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyAxe, true, new Object[] {"XX", "SX", "S ", 'X', "ingotTough", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyHoe, true, new Object[] {"XX", "S ", "S ", 'X', "ingotTough", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyHoe, true, new Object[] {"XX", " S", " S", 'X', "ingotTough", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloySword, true, new Object[] {"X", "X", "S", 'X', "ingotTough", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughAlloyPaxel, true, new Object[] {"ASP", "HIW", " I ", 'I', "ingotIron", 'A', NCItems.toughAlloyAxe, 'S', NCItems.toughAlloyShovel, 'P', NCItems.toughAlloyPickaxe, 'H', NCItems.toughAlloyHoe, 'W', NCItems.toughAlloySword}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUPickaxe, true, new Object[] {"XXX", " S ", " S ", 'X', "plateDU", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUShovel, true, new Object[] {"X", "S", "S", 'X', "plateDU", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUAxe, true, new Object[] {"XX", "XS", " S", 'X', "plateDU", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUAxe, true, new Object[] {"XX", "SX", "S ", 'X', "plateDU", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUHoe, true, new Object[] {"XX", "S ", "S ", 'X', "plateDU", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUHoe, true, new Object[] {"XX", " S", " S", 'X', "plateDU", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUSword, true, new Object[] {"X", "X", "S", 'X', "plateDU", 'S', "ingotIron"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.dUPaxel, true, new Object[] {"ASP", "HIW", " I ", 'I', "ingotIron", 'A', NCItems.dUAxe, 'S', NCItems.dUShovel, 'P', NCItems.dUPickaxe, 'H', NCItems.dUHoe, 'W', NCItems.dUSword}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughHelm, 1), true, new Object[] {"XXX", "X X", 'X', "ingotTough"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "ingotTough"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughLegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "ingotTough"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.toughBoots, 1), true, new Object[] {"X X", "X X", 'X', "ingotTough"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUHelm, 1), true, new Object[] {"XXX", "X X", 'X', "plateDU"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUChest, 1), true, new Object[] {"X X", "XXX", "XXX", 'X', "plateDU"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dULegs, 1), true, new Object[] {"XXX", "X X", "X X", 'X', "plateDU"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUBoots, 1), true, new Object[] {"X X", "X X", 'X', "plateDU"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.RTG, true, new Object[] {"ABA", "BCB", "ABA", 'A', new ItemStack(NCItems.parts, 1, 11), 'B', new ItemStack(NCItems.parts, 1, 15), 'C', new ItemStack(NCItems.fuel, 1, 46)}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.AmRTG, true, new Object[] {"ABA", "BCB", "ABA", 'A', new ItemStack(NCItems.parts, 1, 11), 'B', new ItemStack(NCItems.parts, 1, 15), 'C', new ItemStack(NCItems.fuel, 1, 139)}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.CfRTG, true, new Object[] {"ABA", "BCB", "ABA", 'A', new ItemStack(NCItems.parts, 1, 11), 'B', new ItemStack(NCItems.parts, 1, 15), 'C', new ItemStack(NCItems.fuel, 1, 140)}));
@@ -1826,24 +1826,24 @@ public class NuclearCraft {
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.steamDecompressor, true, new Object[] {"PCP", "GMG", "PCP", 'P', "plateIron", 'C', Blocks.piston, 'G', new ItemStack(NCItems.parts, 1, 10), 'M', new ItemStack(NCItems.parts, 1, 19)}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.denseSteamDecompressor, true, new Object[] {"PPP", "CCC", "PPP", 'P', "plateAdvanced", 'C', NCBlocks.steamDecompressor}));
 			if (enableNukes) {
-				GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.nuke, true, new Object[] {"ABA", "BBB", "ABA", 'A', "plateReinforced", 'B', new ItemStack(NCItems.material, 1, 67)}));
+				//GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.nuke, true, new Object[] {"ABA", "BBB", "ABA", 'A', "plateReinforced", 'B', new ItemStack(NCItems.material, 1, 67)}));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.nuclearGrenade, 3), true, new Object[] {"  S", " S ", "N  ", 'S', Items.string, 'N', NCBlocks.nuke}));
 				GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.antimatterBomb, true, new Object[] {"AAA", "ABA", "AAA", 'A', NCItems.antimatter, 'B', NCBlocks.superElectromagnetIdle}));
 			}
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.solarPanel, true, new Object[] {"DDD", "ECE", "ABA", 'A', new ItemStack(NCItems.parts, 1, 12), 'B', Blocks.iron_block, 'C', "dustCoal", 'D', new ItemStack(NCItems.parts, 1, 15), 'E', "universalReactant"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.portableEnderChest, true, new Object[] {"ABA", "CDC", "AAA", 'A', Blocks.wool, 'B', Items.string, 'C', "plateLead", 'D', Items.ender_eye}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.pistol, true, new Object[] {"AAA", "BBA", "CBA", 'A', "plateReinforced", 'B', "ingotTough", 'C', "plateAdvanced"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.pistol, true, new Object[] {"AAA", "BBA", "CBA", 'A', "plateReinforced", 'B', "ingotTough", 'C', "plateAdvanced"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.parts, 2, 5), true, new Object[] {"ABA", "B B", "ABA", 'A', "universalReactant", 'B', "plateBasic"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.parts, 1, 7), true, new Object[] {"ABA", "B B", "ABA", 'A', "plateTin", 'B', new ItemStack(NCItems.fuel, 1, 34)}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.parts, 1, 3), true, new Object[] {" A ", "ABA", " A ", 'A', "ingotTough", 'B', "plateBasic"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.parts, 1, 8), true, new Object[] {"AAA", "BBB", "AAA", 'A', "U238", 'B', "plateReinforced"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCBlocks.tubing1, 8), true, new Object[] {"AAA", "BBB", "AAA", 'A', "plateLead", 'B', "plateIron"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCBlocks.tubing2, 8), true, new Object[] {"ABA", "ABA", "ABA", 'A', "plateLead", 'B', "plateIron"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughBow, true, new Object[] {"BA ", "B A", "BA ", 'A', "ingotTough", 'B', Items.string}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughBow, true, new Object[] {" AB", "A B", " AB", 'A', "ingotTough", 'B', Items.string}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughBow, true, new Object[] {"BA ", "B A", "BA ", 'A', "ingotTough", 'B', Items.string}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.toughBow, true, new Object[] {" AB", "A B", " AB", 'A', "ingotTough", 'B', Items.string}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.parts, 12, 0), true, new Object[] {"AAA", "BBB", 'A', "ingotTough", 'B', "dustTough"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.fuel, 8, 48), true, new Object[] {"ABA", "BCB", "ABA", 'B', new ItemStack(NCItems.parts, 1, 15), 'C', "ingotTough", 'A', new ItemStack (NCItems.parts, 1, 3)}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUBullet, 4), true, new Object[] {"ABC", 'A', "U238", 'B', Items.gunpowder, 'C', "ingotTough"}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.dUBullet, 4), true, new Object[] {"ABC", 'A', "U238", 'B', Items.gunpowder, 'C', "ingotTough"}));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.fuel, 1, 46), new Object[] {new ItemStack(NCItems.fuel, 1, 48), "Pu238"}));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.fuel, 1, 139), new Object[] {new ItemStack(NCItems.fuel, 1, 48), "Am241"}));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.fuel, 1, 140), new Object[] {new ItemStack(NCItems.fuel, 1, 48), "Cf250"}));
@@ -2011,9 +2011,9 @@ public class NuclearCraft {
 		
 		// Entities
 		EntityHandler.registerMonsters(EntityNuclearMonster.class, "NuclearMonster");
-		EntityHandler.registerPaul(EntityPaul.class, "Paul");
-		EntityHandler.registerBrian(EntityBrian.class, "Brian");
-		EntityHandler.registerNuke(EntityNukePrimed.class, "NukePrimed");
+		//EntityHandler.registerPaul(EntityPaul.class, "Paul");
+		//EntityHandler.registerBrian(EntityBrian.class, "Brian");
+		//EntityHandler.registerNuke(EntityNukePrimed.class, "NukePrimed");
 		EntityHandler.registerEMP(EntityEMPPrimed.class, "EMPPrimed");
 		EntityHandler.registerAntimatterBomb(EntityAntimatterBombPrimed.class, "AntimatterBombPrimed");
 		EntityHandler.registerNuclearGrenade(EntityNuclearGrenade.class, "NuclearGrenade");
@@ -2024,45 +2024,45 @@ public class NuclearCraft {
 			
 		// Random Chest Loot
 		if (enableLoot) {
-			ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 2, 4, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 2, 4, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBow, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 2, 4, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 2, 4, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBow, 1), 1, 1, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordPractice, 1), 1, 1, 2*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordArea51, 1), 1, 1, 2*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordNeighborhood, 1), 1, 1, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBullet, 1), 6, 8, 4*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBullet, 1), 6, 8, 4*lootModifier));
 			
-			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 1, 3, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 1, 3, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 1, 3, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 1, 3, 2*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordPractice, 1), 1, 1, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordArea51, 1), 1, 1, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordNeighborhood, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.pistol, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBullet, 1), 6, 8, 4*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.pistol, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBullet, 1), 6, 8, 4*lootModifier));
 			
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 1, 2, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 1, 2, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 1, 2, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 1, 2, 2*lootModifier));
 			
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBow, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.pistol, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBullet, 1), 6, 8, 5*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBow, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.pistol, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBullet, 1), 6, 8, 5*lootModifier));
 			
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 1, 5, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fishAndRicecake, 1), 1, 5, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughHelm, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughChest, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughLegs, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBoots, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 1, 5, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fishAndRicecake, 1), 1, 5, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughHelm, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughChest, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughLegs, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBoots, 1), 1, 1, lootModifier));
 			
-			ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughHelm, 1), 1, 1, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughChest, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughLegs, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBoots, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBow, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughHelm, 1), 1, 1, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughChest, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughLegs, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBoots, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughBow, 1), 1, 1, lootModifier));
 
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fishAndRicecake, 1), 4, 5, 5*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughAlloyPaxel, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCBlocks.AmRTG, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fishAndRicecake, 1), 4, 5, 5*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughAlloyPaxel, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCBlocks.AmRTG, 1), 1, 1, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 9), 4, 6, 4*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 16), 7, 8, 4*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 17), 7, 8, 4*lootModifier));
@@ -2070,10 +2070,10 @@ public class NuclearCraft {
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 4), 7, 8, 4*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 14), 6, 8, 4*lootModifier));
 			
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fishAndRicecake, 1), 4, 5, 2*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughAlloyPaxel, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUPaxel, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCBlocks.AmRTG, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fishAndRicecake, 1), 4, 5, 2*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.toughAlloyPaxel, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUPaxel, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCBlocks.AmRTG, 1), 1, 1, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 9), 2, 4, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordPractice, 1), 1, 1, 2*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordArea51, 1), 1, 1, 2*lootModifier));
@@ -2084,8 +2084,8 @@ public class NuclearCraft {
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 4), 4, 8, 4*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.parts, 1, 14), 6, 8, 4*lootModifier));
 			
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 4, 5, 3*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 4, 5, 3*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dominoes, 1), 4, 5, 3*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 4, 5, 3*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fuel, 1, 46), 1, 1, 3*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.fuel, 1, 75), 4, 5, 7*lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCBlocks.RTG, 1), 1, 1, lootModifier));
@@ -2095,14 +2095,14 @@ public class NuclearCraft {
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordPractice, 1), 1, 1, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordArea51, 1), 1, 1, lootModifier));
 			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.recordNeighborhood, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCBlocks.simpleQuantumUp, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUHelm, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUChest, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dULegs, 1), 1, 1, lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBoots, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCBlocks.simpleQuantumUp, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUHelm, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUChest, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dULegs, 1), 1, 1, lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.dUBoots, 1), 1, 1, lootModifier));
 
-			ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 2, 3, 3*lootModifier));
-			ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.boiledEgg, 1), 2, 3, 3*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.ricecake, 1), 2, 3, 3*lootModifier));
+			//ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(NCItems.boiledEgg, 1), 2, 3, 3*lootModifier));
 		}
 		
 		// World Generation Registry
