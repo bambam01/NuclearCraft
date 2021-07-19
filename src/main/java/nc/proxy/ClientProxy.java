@@ -2,32 +2,32 @@ package nc.proxy;
 
 import nc.block.NCBlocks;
 import nc.entity.EntityAntimatterBombPrimed;
-import nc.entity.EntityBrian;
-import nc.entity.EntityBullet;
+//import nc.entity.EntityBrian;
+//import nc.entity.EntityBullet;
 import nc.entity.EntityEMPPrimed;
-import nc.entity.EntityNuclearGrenade;
+//import nc.entity.EntityNuclearGrenade;
 import nc.entity.EntityNuclearMonster;
 import nc.entity.EntityNukePrimed;
-import nc.entity.EntityPaul;
+//import nc.entity.EntityPaul;
 import nc.item.NCItems;
-import nc.model.ModelBrian;
+//import nc.model.ModelBrian;
 import nc.model.ModelNuclearMonster;
-import nc.model.ModelPaul;
+//import nc.model.ModelPaul;
 import nc.render.ItemRenderFusionReactor;
 import nc.render.ItemRenderFusionReactorSteam;
 import nc.render.ItemRenderNuclearWorkspace;
 import nc.render.ItemRenderTubing1;
 import nc.render.ItemRenderTubing2;
 import nc.render.RenderAntimatterBombPrimed;
-import nc.render.RenderBrian;
-import nc.render.RenderBullet;
+//import nc.render.RenderBrian;
+//import nc.render.RenderBullet;
 import nc.render.RenderEMPPrimed;
 import nc.render.RenderFusionReactor;
 import nc.render.RenderFusionReactorSteam;
 import nc.render.RenderNuclearMonster;
 import nc.render.RenderNuclearWorkspace;
 import nc.render.RenderNukePrimed;
-import nc.render.RenderPaul;
+//import nc.render.RenderPaul;
 import nc.render.RenderTubing1;
 import nc.render.RenderTubing2;
 import nc.tile.crafting.TileNuclearWorkspace;
@@ -84,14 +84,14 @@ public void registerRenderThings() {
 		
 		//Entities
 		RenderingRegistry.registerEntityRenderingHandler(EntityNuclearMonster.class, new RenderNuclearMonster(new ModelNuclearMonster(), 0.3F));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPaul.class, new RenderPaul(new ModelPaul(), 1.0F));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBrian.class, new RenderBrian(new ModelBrian(), 1.0F));
+	//	RenderingRegistry.registerEntityRenderingHandler(EntityPaul.class, new RenderPaul(new ModelPaul(), 1.0F));
+	//	RenderingRegistry.registerEntityRenderingHandler(EntityBrian.class, new RenderBrian(new ModelBrian(), 1.0F));
 		
 		//Nuclear Grenade
-		RenderingRegistry.registerEntityRenderingHandler(EntityNuclearGrenade.class, new RenderSnowball(NCItems.nuclearGrenadeThrown));
+	//	RenderingRegistry.registerEntityRenderingHandler(EntityNuclearGrenade.class, new RenderSnowball(NCItems.nuclearGrenadeThrown));
 		
 		//DU Bullet
-		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
+	//	RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
 	}
 
 	@Override

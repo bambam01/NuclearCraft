@@ -59,8 +59,8 @@ import nc.block.nuke.BlockAntimatterBomb;
 import nc.block.nuke.BlockAntimatterBombExploding;
 import nc.block.nuke.BlockEMP;
 import nc.block.nuke.BlockEMPExploding;
-//import nc.block.nuke.BlockNuke;
-//import nc.block.nuke.BlockNukeExploding;
+import nc.block.nuke.BlockNuke;
+import nc.block.nuke.BlockNukeExploding;
 import nc.block.quantum.BlockSimpleQuantum;
 import nc.block.reactor.BlockBlastBlock;
 import nc.block.reactor.BlockCellBlock;
@@ -77,12 +77,12 @@ import nc.entity.EntityAntimatterBombPrimed;
 //import nc.entity.EntityBrian;
 //import nc.entity.EntityBullet;
 import nc.entity.EntityEMPPrimed;
-import nc.entity.EntityNuclearGrenade;
+//import nc.entity.EntityNuclearGrenade;
 import nc.entity.EntityNuclearMonster;
-//import nc.entity.EntityNukePrimed;
+import nc.entity.EntityNukePrimed;
 //import nc.entity.EntityPaul;
 import nc.gui.GuiHandler;
-import nc.handler.AnvilRepairHandler;
+//import nc.handler.AnvilRepairHandler;
 import nc.handler.BlockDropHandler;
 import nc.handler.EntityDropHandler;
 import nc.handler.EntityHandler;
@@ -102,7 +102,7 @@ import nc.item.ItemPart;
 import nc.item.ItemUpgrade;
 //import nc.item.NCAxe;
 //import nc.item.NCHoe;
-//import nc.item.NCItems;
+import nc.item.NCItems;
 //import nc.item.NCPaxel;
 //import nc.item.NCPickaxe;
 import nc.item.NCRecord;
@@ -1632,7 +1632,7 @@ public class NuclearCraft {
 		GameRegistry.addShapelessRecipe(new ItemStack(NCBlocks.tubing2, 1), new Object[] {new ItemStack(NCBlocks.tubing1)});
 		
 		// Complex Shapeless Crafting Recipes
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.dominoes, 4), new Object[] {Items.cooked_beef, Items.cooked_porkchop, Items.cooked_chicken, Blocks.brown_mushroom, Blocks.brown_mushroom, Items.bread, Items.bread}));
+		//GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.dominoes, 4), new Object[] {Items.cooked_beef, Items.cooked_porkchop, Items.cooked_chicken, Blocks.brown_mushroom, Blocks.brown_mushroom, Items.bread, Items.bread}));
 		
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.material, 4, 6), new Object[] {"ingotCopper", "ingotCopper", "ingotCopper", "ingotTin"}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.material, 4, 21), new Object[] {"dustCopper", "dustCopper", "dustCopper", "dustTin"}));
@@ -1738,7 +1738,7 @@ public class NuclearCraft {
 		// Other Shapeless Recipes
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.parts, 3, 4), new Object[] {Items.sugar, "dustLapis", Items.redstone}));
 		
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.fishAndRicecake, 1), new Object[] {Items.cooked_fished, NCItems.ricecake}));
+		//GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.fishAndRicecake, 1), new Object[] {Items.cooked_fished, NCItems.ricecake}));
 		
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.recordPractice, 1), new Object[] {"record", "ingotBoron"}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(NCItems.recordArea51, 1), new Object[] {"record", "ingotTough"}));
@@ -1827,11 +1827,11 @@ public class NuclearCraft {
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.denseSteamDecompressor, true, new Object[] {"PPP", "CCC", "PPP", 'P', "plateAdvanced", 'C', NCBlocks.steamDecompressor}));
 			if (enableNukes) {
 				//GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.nuke, true, new Object[] {"ABA", "BBB", "ABA", 'A', "plateReinforced", 'B', new ItemStack(NCItems.material, 1, 67)}));
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.nuclearGrenade, 3), true, new Object[] {"  S", " S ", "N  ", 'S', Items.string, 'N', NCBlocks.nuke}));
+			//	GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.nuclearGrenade, 3), true, new Object[] {"  S", " S ", "N  ", 'S', Items.string, 'N', NCBlocks.nuke}));
 				GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.antimatterBomb, true, new Object[] {"AAA", "ABA", "AAA", 'A', NCItems.antimatter, 'B', NCBlocks.superElectromagnetIdle}));
 			}
 			GameRegistry.addRecipe(new ShapedOreRecipe(NCBlocks.solarPanel, true, new Object[] {"DDD", "ECE", "ABA", 'A', new ItemStack(NCItems.parts, 1, 12), 'B', Blocks.iron_block, 'C', "dustCoal", 'D', new ItemStack(NCItems.parts, 1, 15), 'E', "universalReactant"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.portableEnderChest, true, new Object[] {"ABA", "CDC", "AAA", 'A', Blocks.wool, 'B', Items.string, 'C', "plateLead", 'D', Items.ender_eye}));
+			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.portableEnderChest, true, new Object[] {"ABA", "CDC", "AAA", 'A', Blocks.wool, 'B', Items.string, 'C', "plateLead", 'D', Items.ender_eye}));
 			//GameRegistry.addRecipe(new ShapedOreRecipe(NCItems.pistol, true, new Object[] {"AAA", "BBA", "CBA", 'A', "plateReinforced", 'B', "ingotTough", 'C', "plateAdvanced"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.parts, 2, 5), true, new Object[] {"ABA", "B B", "ABA", 'A', "universalReactant", 'B', "plateBasic"}));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(NCItems.parts, 1, 7), true, new Object[] {"ABA", "B B", "ABA", 'A', "plateTin", 'B', new ItemStack(NCItems.fuel, 1, 34)}));
@@ -1883,7 +1883,7 @@ public class NuclearCraft {
 		GameRegistry.addSmelting(new ItemStack(NCItems.material, 1, 79), new ItemStack(NCItems.material, 1, 78), 0.0F);
 		GameRegistry.addSmelting(new ItemStack(NCItems.material, 1, 81), new ItemStack(NCItems.material, 1, 80), 0.0F);
 		
-		GameRegistry.addSmelting(new ItemStack(Items.egg, 1), new ItemStack(NCItems.boiledEgg, 1), 0.1F);
+		//GameRegistry.addSmelting(new ItemStack(Items.egg, 1), new ItemStack(NCItems.boiledEgg, 1), 0.1F);
 		
 		s(NCItems.fuel, 51, 0);
 		s(NCItems.fuel, 52, 1);
@@ -2013,11 +2013,11 @@ public class NuclearCraft {
 		EntityHandler.registerMonsters(EntityNuclearMonster.class, "NuclearMonster");
 		//EntityHandler.registerPaul(EntityPaul.class, "Paul");
 		//EntityHandler.registerBrian(EntityBrian.class, "Brian");
-		//EntityHandler.registerNuke(EntityNukePrimed.class, "NukePrimed");
+		EntityHandler.registerNuke(EntityNukePrimed.class, "NukePrimed");
 		EntityHandler.registerEMP(EntityEMPPrimed.class, "EMPPrimed");
 		EntityHandler.registerAntimatterBomb(EntityAntimatterBombPrimed.class, "AntimatterBombPrimed");
-		EntityHandler.registerNuclearGrenade(EntityNuclearGrenade.class, "NuclearGrenade");
-		EntityHandler.registerEntityBullet(EntityBullet.class, "EntityBullet");
+		//EntityHandler.registerNuclearGrenade(EntityNuclearGrenade.class, "NuclearGrenade");
+		//EntityHandler.registerEntityBullet(EntityBullet.class, "EntityBullet");
 				
 		// Fuel Handler	
 		GameRegistry.registerFuelHandler(new FuelHandler());
@@ -2783,18 +2783,18 @@ public class NuclearCraft {
 		MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
 		
 		// Anvil Recipes
-		MinecraftForge.EVENT_BUS.register(new AnvilRepairHandler());
+		//MinecraftForge.EVENT_BUS.register(new AnvilRepairHandler());
 		
 		// Achievements
 		achievements = new Achievements("NuclearCraft");
 		FMLCommonHandler.instance().bus().register(achievements);
 		
 		nuclearFurnaceAchievement = a("nuclearFurnace", 4, -2, NCBlocks.nuclearFurnaceIdle, null);
-		dominosAchievement = a("dominos", -4, -2, NCItems.dominoes, null);
-		fishAndRicecakeAchievement = a("fishAndRicecake", -6, -2, NCItems.fishAndRicecake, null);
+		//dominosAchievement = a("dominos", -4, -2, NCItems.dominoes, null);
+		//fishAndRicecakeAchievement = a("fishAndRicecake", -6, -2, NCItems.fishAndRicecake, null);
 		if (workspace) heavyDutyWorkspaceAchievement = a("heavyDutyWorkspace", 0, 0, NCBlocks.nuclearWorkspace, null);
 		nukeAchievement = a("nuke", -2, -2, NCBlocks.nukeE, workspace ? heavyDutyWorkspaceAchievement : null);
-		toolAchievement = a("tool", 2, -2, NCItems.dUPaxel, workspace ? heavyDutyWorkspaceAchievement : null);
+		//toolAchievement = a("tool", 2, -2, NCItems.dUPaxel, workspace ? heavyDutyWorkspaceAchievement : null);
 		reactionGeneratorAchievement = a("reactionGenerator", -2, 0, NCBlocks.reactionGeneratorIdle, workspace ? heavyDutyWorkspaceAchievement : null);
 		factoryAchievement = a("factory", 0, 2, NCBlocks.factoryIdle, workspace ? heavyDutyWorkspaceAchievement : null);
 		fissionControllerAchievement = a("fissionController", 2, 2, NCBlocks.fissionReactorGraphiteIdle, factoryAchievement);
@@ -2802,7 +2802,7 @@ public class NuclearCraft {
 		fusionReactorAchievement = a("fusionReactor", 4, 2, NCBlocks.fusionReactor, fissionControllerAchievement);
 		separatorAchievement = a("separator", -2, 2, NCBlocks.separatorIdle, factoryAchievement);
 		oxidiserAchievement = a("oxidiser", -4, 4, NCBlocks.oxidiserIdle, separatorAchievement);
-		pistolAchievement = a("pistol", -4, 2, NCItems.pistol, separatorAchievement);
+		//pistolAchievement = a("pistol", -4, 2, NCItems.pistol, separatorAchievement);
 		solarAchievement = a("solar", 2, 4, NCBlocks.solarPanel, factoryAchievement);
 		synchrotronAchievement = a("synchrotron", 4, 6, NCBlocks.synchrotronIdle, factoryAchievement);
 		synchrotronAchievement = a("antimatterBomb", 4, 8, NCBlocks.antimatterBombE, synchrotronAchievement);
