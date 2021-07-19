@@ -143,10 +143,10 @@ public class NEINCConfig implements IConfigureNEI {
 		API.hideItem(new ItemStack(NCBlocks.fusionReactorBlockTop));
 		API.hideItem(new ItemStack(NCBlocks.fusionReactorSteamBlock));
 		API.hideItem(new ItemStack(NCBlocks.fusionReactorSteamBlockTop));
-		API.hideItem(new ItemStack(NCBlocks.nukeE));
+	//	API.hideItem(new ItemStack(NCBlocks.nukeE));
 		API.hideItem(new ItemStack(NCBlocks.antimatterBombE));
 		API.hideItem(new ItemStack(NCBlocks.EMPE));
-		API.hideItem(new ItemStack(NCItems.nuclearGrenadeThrown));
+	//	API.hideItem(new ItemStack(NCItems.nuclearGrenadeThrown));
 	}
 
 	public String getName() {

@@ -53,7 +53,7 @@ public class InfoRecipes {
 		addRecipe(new ItemStack(NCBlocks.denseSteamDecompressor), "-Takes in superdense steam-and decompresses it to-form dense steam at a-maximum rate of 2 mB/t of-superdense steam to-2000 mB/t of dense steam");
 		addRecipe(new ItemStack(NCBlocks.solarPanel), "-Generates a constant-stream of " + NuclearCraft.solarRF + " RF/t during-the day");
 		addRecipe(new ItemStack(NCBlocks.collectorIdle), "-Slowly generates Helium4-from the Thorium inside it");
-		addRecipe(new ItemStack(NCBlocks.nuke), "-A cruel joke, a fun time,-or just a big hole--Nuff said");
+	//	addRecipe(new ItemStack(NCBlocks.nuke), "-A cruel joke, a fun time,-or just a big hole--Nuff said");
 		addRecipe(new ItemStack(NCBlocks.antimatterBomb), "-Show the world what-would have happened if-Ewan McGregor did not-have a helicopter at-his disposal...");
 		addRecipe(new ItemStack(NCBlocks.electrolyserIdle), "-Uses RF to separate-water into Oxygen, Hydrogen-and Deuterium--Can accept speed and-efficiency upgrades");
 		addRecipe(new ItemStack(NCBlocks.oxidiserIdle), "-Uses RF to oxidise materials--Makes nuclear fuels more-efficient--Can accept speed and-efficiency upgrades");

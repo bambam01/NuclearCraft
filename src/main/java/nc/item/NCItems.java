@@ -1,8 +1,8 @@
-// package nc.item;
+ package nc.item;
 
-// import net.minecraft.item.Item;
+ import net.minecraft.item.Item;
 
-// public class NCItems {
+ public class NCItems {
 
 // //	public static Item bronzePickaxe;
 // //	public static Item bronzeShovel;
@@ -53,13 +53,13 @@
 // //	public static Item bronzeLegs;
 // //	public static Item bronzeBoots;
 
-// 	public static Item fuel;
-// 	public static Item material;
-// 	public static Item parts;
+ 	public static Item fuel;
+ 	public static Item material;
+ 	public static Item parts;
 	
 // //	public static Item dominoes;
-// 	public static Item upgradeSpeed;
-// 	public static Item upgradeEnergy;
+ 	public static Item upgradeSpeed;
+ 	public static Item upgradeEnergy;
 	
 // //	public static Item nuclearGrenade;
 // //	public static Item nuclearGrenadeThrown;
@@ -68,13 +68,13 @@
 // //	public static Item ricecake;
 // //	public static Item fishAndRicecake;
 	
-// 	public static Item recordPractice;
-// 	public static Item recordArea51;
-// 	public static Item recordNeighborhood;
-// 	//public static Item recordJoe;
-// 	public static Item blank;
+ 	public static Item recordPractice;
+ 	public static Item recordArea51;
+ 	public static Item recordNeighborhood;
+ 	//public static Item recordJoe;
+ 	public static Item blank;
 	
-// 	public static Item antimatter;
+ 	public static Item antimatter;
 	
-// 	public static Item lithiumIonBattery;
-// }
+ 	public static Item lithiumIonBattery;
+ }

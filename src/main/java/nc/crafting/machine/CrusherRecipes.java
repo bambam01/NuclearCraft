@@ -155,7 +155,7 @@ public class CrusherRecipes extends NCRecipeHelper {
     	addRecipe(new ItemStack(Items.skull, 1, 0), new ItemStack(Items.dye, 12, 15));
     	addRecipe(new ItemStack(Items.skull, 1, 1), new ItemStack(Items.dye, 12, 15));
     	addRecipe(new ItemStack(Items.skull, 1, 2), new ItemStack(Items.rotten_flesh, 5));
-    	addRecipe(new ItemStack(Items.skull, 1, 3), new ItemStack(NCItems.dominoes, 1));
+    	//addRecipe(new ItemStack(Items.skull, 1, 3), new ItemStack(NCItems.dominoes, 1));
     	addRecipe(new ItemStack(Items.skull, 1, 4), new ItemStack(Items.gunpowder, 5));
     	addRecipe(new ItemStack(Items.firework_charge), new ItemStack(Items.gunpowder, 1));
     	addRecipe(new ItemStack(Items.fireworks), new ItemStack(Items.gunpowder, 1));
