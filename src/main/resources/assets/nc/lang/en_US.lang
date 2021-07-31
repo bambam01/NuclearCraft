@@ -37,7 +37,8 @@ tile.simpleQuantumDown.name=Spin 1/2 Block
 
 tile.graphiteBlock.name=Graphite Block
 tile.cellBlock.name=Fuel Cell Compartment
-tile.reactorBlock.name=Reactor Casing
+tile.reactorBlock_0.name=Reactor Casing
+tile.reactorBlock_1.name=Reactor Glass
 tile.fusionConnector.name=Fusion Connector
 tile.coolerBlock.name=Standard Reactor Cooler
 tile.redstoneCoolerBlock.name=Redstone Reactor Cooler
