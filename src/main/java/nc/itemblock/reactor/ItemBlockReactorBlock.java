@@ -1,11 +1,18 @@
 package nc.itemblock.reactor;
 
-import nc.itemblock.ItemBlockNC;
+import nc.itemblock.ItemBlockMeta;
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 
-public class ItemBlockReactorBlock extends ItemBlockNC {
+public class ItemBlockReactorBlock extends ItemBlockMeta {
 
-	public ItemBlockReactorBlock(Block block) {
-		super(block, "Used in the construction of Fission Reactors.");
-	}
+    public ItemBlockReactorBlock(Block block) {
+        super(block);
+    }
+
+
+    @Override
+    public String getUnlocalizedName(ItemStack itemstack) {
+        return this.getUnlocalizedName() + "_" + itemstack.getItemDamage();
+    }
 }
