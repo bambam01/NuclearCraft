@@ -10,6 +10,9 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GuiFissionReactorSteam extends GuiContainer {
     public static final ResourceLocation bground = new ResourceLocation("nc:textures/gui/fissionReactorSteam.png");
     
@@ -20,6 +23,24 @@ public class GuiFissionReactorSteam extends GuiContainer {
         this.entity = entity;
         this.xSize = 176;
         this.ySize = 177;
+    }
+
+    public void drawToolTips(int mouseX, int mouseY) {
+        if (this.entity.complete == 1){
+            return;
+        }
+        int boxX = this.guiLeft + 67;
+        int boxY = this.guiTop;
+
+        int defaultX = 100;
+        int defaultY = 16;
+
+
+        if(mouseX > boxX && mouseX < boxX + defaultX && mouseY > boxY && mouseY < boxY + defaultY) {
+            List list = new ArrayList(); //Just the list of text to be added. It is just like the addInformation method now.
+            list.add(this.entity.extendedproblem); //Each time you add something, it's gonna be a new line in the tooltip.
+            this.drawHoveringText(list, mouseX-this.guiLeft-this.fontRendererObj.getStringWidth(this.entity.extendedproblem), mouseY-this.guiTop, this.fontRendererObj);
+        }
     }
 
     public void drawGuiContainerForegroundLayer(int par1, int par2) {
@@ -47,6 +68,7 @@ public class GuiFissionReactorSteam extends GuiContainer {
         
         String numberCells = /*StatCollector.translateToLocal("gui.cells")*/ "Cells" + ": " + this.entity.numberOfCells;
         this.fontRendererObj.drawString(numberCells, 7, 85, (this.entity.complete == 1 ? -1 : 15597568));
+        this.drawToolTips(par1, par2);
     }
 
     protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
