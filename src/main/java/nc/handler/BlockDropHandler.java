@@ -40,7 +40,5 @@ public class BlockDropHandler {
 			chanceMetaExtra(event, NCBlocks.blockOre, 6, new ItemStack(NCItems.material, 1, 37), 25);
 			chanceMetaExtra(event, NCBlocks.blockOre, 6, new ItemStack(NCItems.material, 1, 62), 5);
 		}
-		chanceExtra(event, Blocks.redstone_ore, new ItemStack(NCItems.material, 1, 73), 10);
-		chanceExtra(event, Blocks.lit_redstone_ore, new ItemStack(NCItems.material, 1, 73), 10);
 	}
 }
