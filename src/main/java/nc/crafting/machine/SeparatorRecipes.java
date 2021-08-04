@@ -35,27 +35,27 @@ public class SeparatorRecipes extends NCRecipeHelper {
 		fuel("C247", "Cm246", "Cm247");
 		
 		recipe("ingotUranium", "U238Base", 2, "tinyU235Base", 2);
-		recipe("dustUranium", "U238Base", 2, "tinyU235Base", 2);
+		//recipe("dustUranium", "U238Base", 2, "tinyU235Base", 2);
 		
 		recipe("ingotYellorium", "U238Base", "tinyU235Base");
-		recipe("dustYellorium", "U238Base", "tinyU235Base");
+		//recipe("dustYellorium", "U238Base", "tinyU235Base");
 		recipe("ingotYellorite", "U238Base", "tinyU235Base");
-		recipe("dustYellorite", "U238Base", "tinyU235Base");
+		//recipe("dustYellorite", "U238Base", "tinyU235Base");
 		
 		recipe("ingotThorium", "Th232Base", 2, "tinyTh230Base", 2);
-		recipe("dustThorium", "Th232Base", 2, "tinyTh230Base", 2);
+		//recipe("dustThorium", "Th232Base", 2, "tinyTh230Base", 2);
 		
 		recipe("ingotUraniumOxide", "U238Oxide", 2, "tinyU235Oxide", 2);
-		recipe("dustUraniumOxide", "U238Oxide", 2, "tinyU235Oxide", 2);
+		//recipe("dustUraniumOxide", "U238Oxide", 2, "tinyU235Oxide", 2);
 		
 		recipe("ingotThoriumOxide", "Th232Oxide", 2, "tinyTh230Oxide", 2);
-		recipe("dustThoriumOxide", "Th232Oxide", 2, "tinyTh230Oxide", 2);
+		//recipe("dustThoriumOxide", "Th232Oxide", 2, "tinyTh230Oxide", 2);
 		
 		recipe("ingotLithium", "Li7", "tinyLi6", 2);
-		recipe("dustLithium", "Li7", "tinyLi6", 2);
+		//recipe("dustLithium", "Li7", "tinyLi6", 2);
 		
 		recipe("ingotBoron", "B11", "tinyB10", 3);
-		recipe("dustBoron", "B11", "tinyB10", 3);
+		//recipe("dustBoron", "B11", "tinyB10", 3);
 	}
 	
 	public void recipe(String in, String out1, int num1, String out2, int num2) {
