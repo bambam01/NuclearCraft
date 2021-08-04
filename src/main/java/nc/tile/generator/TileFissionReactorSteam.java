@@ -49,8 +49,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
     public String typeoffuel = StatCollector.translateToLocal("gui.noFuel");
     public int MBNumber;
     public String problem = StatCollector.translateToLocal("gui.casingIncomplete");
+	public String extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete");
 
-    public TileFissionReactorSteam() {
+
+	public TileFissionReactorSteam() {
 		super("fissionSteam", 100000, 2);
 	}
     
@@ -774,6 +776,7 @@ public class TileFissionReactorSteam extends TileSteamProducer {
         super.readFromNBT(nbt);
         typeoffuel = nbt.getString("Typeoffuel");
         problem = nbt.getString("problem");
+        extendedproblem = nbt.getString("extendedproblem");
         fueltime = nbt.getInteger("Fueltime");
         fueltype = nbt.getInteger("Fueltype");
         
@@ -828,6 +831,7 @@ public class TileFissionReactorSteam extends TileSteamProducer {
         nbt.setInteger("numberOfCells", numberOfCells);
         nbt.setString("Typeoffuel", typeoffuel);
         nbt.setString("problem", problem);
+        nbt.setString("extendedproblem", extendedproblem);
         nbt.setInteger("SReal", SReal);
         nbt.setInteger("HReal", HReal);
         nbt.setDouble("steam", steam);
@@ -868,7 +872,24 @@ public class TileFissionReactorSteam extends TileSteamProducer {
     	else if (getBlockMetadata() == 3) return (worldObj.getBlock(xc+z, yc, zc-x) == block || worldObj.getBlock(xc+z, yc, zc-x) == block2 || worldObj.getBlock(xc+z, yc, zc-x) == block3 || worldObj.getBlock(xc+z, yc, zc-x) == block4);
     	else return false;
     }
-    
+
+	private int[] getRealBlock(int relativeX, int relativeY, int relativeZ){
+		int xc = xCoord;
+		int yc = yCoord + relativeY;
+		int zc = zCoord;
+
+		if (getBlockMetadata() == 4) return new int[]{xc + relativeX, yc, zc + relativeZ};
+		else if (getBlockMetadata() == 2) return new int[]{xc - relativeZ, yc, zc + relativeX};
+		else if (getBlockMetadata() == 5) return new int[]{xc - relativeX, yc, zc - relativeZ};
+		else if (getBlockMetadata() == 3) return new int[]{xc + relativeZ, yc, zc - relativeX};
+		return new int[]{0,0,0};
+	}
+
+	private String getRealBlockString(int relativeX, int relativeY, int relativeZ){
+		int[] realcoords = getRealBlock(relativeX, relativeY, relativeZ);
+		return "(" + realcoords[0] + "," + realcoords[1] + "," + realcoords[2] + ")";
+	}
+
     private boolean find(Block block, Block block2, Block block3, Block block4, Block block5, int x, int y, int z) {
     	int xc = xCoord;
     	int yc = yCoord + y;
@@ -939,6 +960,7 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 			if (!casintComplte) {
 				complete = 0;
 				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_invalid_controller_location");
 				return false;
 			}
 			casintComplte = false;
@@ -966,6 +988,7 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 			if (!casintComplte) {
 				complete = 0;
 				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_left_front_corner");
 				return false;
 			}
 			casintComplte = false;
@@ -993,6 +1016,7 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 			if (!casintComplte) {
 				complete = 0;
 				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_right_front_corner");
 				return false;
 			}
 			casintComplte = false;
@@ -1020,8 +1044,32 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 			if (!casintComplte) {
 				complete = 0;
 				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_left_back_corner");
 				return false;
 			}
+
+//            check bottom right back corner
+			if (
+					find(reactorBlock, x1+1, y0, z1) ||
+							find(reactorBlock, x1, y0, z1 + 1) ||
+							find(reactorBlock, x1 , y0 - 1, z1) ||
+
+							!find(reactorBlock, x1,y0, z1 ) ||
+							!find(reactorBlock, x1-1,y0, z1 ) ||
+							!find(reactorBlock, x1,y0, z1-1 ) ||
+							!find(reactorBlock, x1,y0+1, z1 ) ||
+
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1, y0 + 1, z1) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 , y0 + 1, z1 -1) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 -1, y0, z1 -1)) {
+				complete = 0;
+				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_right_back_corner");
+				return false;
+			}
+
+
+
 			casintComplte = false;
 
 			//left front top corner check
@@ -1047,14 +1095,89 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 			if (!casintComplte) {
 				complete = 0;
 				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_left_front_corner");
 				return false;
 			}
+
+
+			//            check right front top corner
+			if (
+					find(reactorBlock, x0-1, y1, z1) ||
+							find(reactorBlock, x0, y1, z1 + 1) ||
+							find(reactorBlock, x0 , y1 + 1, z1) ||
+
+							!find(reactorBlock, x0, y1, z1 ) ||
+							!find(reactorBlock, x0+1, y1, z1 ) ||
+							!find(reactorBlock, x0, y1-1, z1 ) ||
+							!find(reactorBlock, x0, y1, z1-1 ) ||
+
+
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1 - 1, z1 - 1) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1 , y1 - 1, z1) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y1, z1 -1)) {
+				complete = 0;
+				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_right_front_corner");
+				return false;
+			}
+
+			//            check right back top corner
+			if (
+					find(reactorBlock, x1+1, y1, z1) ||
+							find(reactorBlock, x1, y1, z1 + 1) ||
+							find(reactorBlock, x0 , y1 + 1, z1) ||
+
+							!find(reactorBlock, x1, y1, z1 ) ||
+							!find(reactorBlock, x1-1, y1, z1 ) ||
+							!find(reactorBlock, x1, y1-1, z1 ) ||
+							!find(reactorBlock, x1, y1, z1-1 ) ||
+
+
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1 - 1, z1 - 1) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1 , y1 - 1, z1) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1, y1, z1 -1)) {
+				complete = 0;
+				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_right_back_corner");
+				return false;
+			}
+
+
+			//            check left back top corner
+			if (
+					find(reactorBlock, x1+1, y1, z0) ||
+							find(reactorBlock, x1, y1, z0 - 1) ||
+							find(reactorBlock, x0 , y1 + 1, z0) ||
+
+							!find(reactorBlock, x1, y1, z0 ) ||
+							!find(reactorBlock, x1-1, y1, z0 ) ||
+							!find(reactorBlock, x1, y1-1, z0 ) ||
+							!find(reactorBlock, x1, y1, z0+1 ) ||
+
+
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1 - 1, z0 + 1) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1 , y1 - 1, z0) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1, y1, z0 + 1)) {
+				complete = 0;
+				problem = StatCollector.translateToLocal("gui.casingIncomplete");
+				extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_left_back_corner");
+				return false;
+			}
+
+
+
+
 			casintComplte = false;
+
+			//check to see if coordinates make sense
 			if ((x0 > 0 || x1 < 0) || (y0 > 0 || y1 < 0) || (z0 > 0 || z1 < 0) || x1 - x0 < 1 || y1 - y0 < 1 || z1 - z0 < 1) {
 				problem = StatCollector.translateToLocal("gui.invalidStructure");
+				extendedproblem = StatCollector.translateToLocal("gui.invalidStructure");
 				complete = 0;
 				return false;
 			}
+
+			//check entire multiblock for multiple controllers
 			for (int z = z0; z <= z1; z++) {
 				for (int x = x0; x <= x1; x++) {
 					for (int y = y0; y <= y1; y++) {
@@ -1062,6 +1185,7 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 							if (x == 0 && y == 0 && z == 0) {
 							} else {
 								problem = StatCollector.translateToLocal("gui.multipleControllers");
+								extendedproblem = StatCollector.translateToLocal("gui.multipleControllers") + ": " + getRealBlockString(x,y,z);
 								complete = 0;
 								return false;
 							}
@@ -1069,51 +1193,67 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 					}
 				}
 			}
-			for (int z = z0 + 1; z <= z1 - 1; z++) {
-				for (int x = x0 + 1; x <= x1 - 1; x++) {
+
+			//check top and bottom are completly filled with reactor casing
+			for (int z = z0 ; z <= z1; z++) {
+				for (int x = x0; x <= x1; x++) {
 					if (!find(reactorBlock, x, y0, z) && !(x == 0 && y0 == 0 && z == 0)) {
 						problem = StatCollector.translateToLocal("gui.casingIncomplete");
+						extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom") + ": " + getRealBlockString(x,y0,z);
 						complete = 0;
 						return false;
 					}
 					if (!find(reactorBlock, x, y1, z) && !(x == 0 && y1 == 0 && z == 0)) {
 						problem = StatCollector.translateToLocal("gui.casingIncomplete");
+						extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top") + ": " + getRealBlockString(x,y1,z);
 						complete = 0;
 						return false;
 					}
 				}
 			}
-			for (int y = y0 + 1; y <= y1 - 1; y++) {
-				for (int x = x0 + 1; x <= x1 - 1; x++) {
+
+			//check if sides are completly filled
+			for (int y = y0; y <= y1; y++) {
+
+				//check left and right side
+				for (int x = x0; x <= x1; x++) {
 					if (!find(reactorBlock, x, y, z0) && !(x == 0 && y == 0 && z0 == 0)) {
 						problem = StatCollector.translateToLocal("gui.casingIncomplete");
+						extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_left") + ": " + getRealBlockString(x,y,z0);
 						complete = 0;
 						return false;
 					}
 					if (!find(reactorBlock, x, y, z1) && !(x == 0 && y == 0 && z1 == 0)) {
 						problem = StatCollector.translateToLocal("gui.casingIncomplete");
+						extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_right") + ": " + getRealBlockString(x,y,z1);
 						complete = 0;
 						return false;
 					}
 				}
+
+				//check front and back
 				for (int z = z0 + 1; z <= z1 - 1; z++) {
 					if (!find(reactorBlock, x0, y, z) && !(x0 == 0 && y == 0 && z == 0)) {
 						problem = StatCollector.translateToLocal("gui.casingIncomplete");
+						extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_front") + ": " + getRealBlockString(x0,y,z);
 						complete = 0;
 						return false;
 					}
 					if (!find(reactorBlock, x1, y, z) && !(x1 == 0 && y == 0 && z == 0)) {
 						problem = StatCollector.translateToLocal("gui.casingIncomplete");
+						extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_back") + ": " + getRealBlockString(x1,y,z);
 						complete = 0;
 						return false;
 					}
 				}
 			}
+			//check interior
 			for (int z = z0 + 1; z <= z1 - 1; z++) {
 				for (int x = x0 + 1; x <= x1 - 1; x++) {
 					for (int y = y0 + 1; y <= y1 - 1; y++) {
 						if (find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x, y, z)) {
-							problem = StatCollector.translateToLocal("gui.casingInInterior");
+							problem = StatCollector.translateToLocal("gui.casingIncomplete");
+							extendedproblem = StatCollector.translateToLocal("gui.casingInInterior")  + ": " + getRealBlockString(x,y,z);
 							complete = 0;
 							return false;
 						}
