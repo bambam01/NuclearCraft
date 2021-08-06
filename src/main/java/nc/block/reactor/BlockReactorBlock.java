@@ -1,13 +1,12 @@
 package nc.block.reactor;
 
 import nc.NuclearCraft;
-import nc.block.NCBlocks;
+import nc.render.SidedSubmapManagerCTM;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
@@ -15,33 +14,69 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import team.chisel.ctmlib.ICTMBlock;
+import team.chisel.ctmlib.ISubmapManager;
+import team.chisel.ctmlib.SubmapManagerCTM;
 
 import java.util.List;
 
-public class BlockReactorBlock extends Block {
+public class BlockReactorBlock extends Block implements ICTMBlock<ISubmapManager> {
+
+
+
+    @SideOnly(Side.CLIENT)
+    private SidedSubmapManagerCTM normalManager;
+
+    @SideOnly(Side.CLIENT)
+    private SidedSubmapManagerCTM glassManager;
+
+
 
     public BlockReactorBlock() {
         super(Material.iron);
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
-    protected IIcon blockIcons[];
+    public int getRenderType() {
+        return NuclearCraft.connectedRenderID;
+    }
+
+
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerBlockIcons(IIconRegister p_149651_1_) {
+    public void registerBlockIcons(IIconRegister icon) {
 
-        blockIcons = new IIcon[2];
-        for (int i = 0; i < blockIcons.length; i++) {
-            blockIcons[i] = p_149651_1_.registerIcon("nc:reactor/" + this.getUnlocalizedName().substring(5) + "_" + i + (NuclearCraft.alternateCasing ? "_Alt" : ""));
+        glassManager = new SidedSubmapManagerCTM("reactor/" + this.getUnlocalizedName().substring(5) + "_glass" + (NuclearCraft.alternateCasing ? "Alt" : ""));
+        glassManager.registerIcons(NuclearCraft.textureid, this, icon);
+        normalManager = new SidedSubmapManagerCTM("reactor/" + this.getUnlocalizedName().substring(5) + (NuclearCraft.alternateCasing ? "Alt" : ""));
+        normalManager.registerIcons(NuclearCraft.textureid, this, icon);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
+        switch (world.getBlockMetadata(x - Facing.offsetsXForSide[side], y - Facing.offsetsYForSide[side], z - Facing.offsetsZForSide[side])){
+            case 1:
+                return glassManager.getIcon(side, 1);
+            case 0:
+            default:
+                return normalManager.getIcon(side, 0);
         }
     }
 
     @SideOnly(Side.CLIENT)
     @Override
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+    public IIcon getIcon(int side, int meta) {
+        switch (meta){
+            case 1:
+                return glassManager.getIcon(side, meta);
+            case 0:
+            default:
+                return normalManager.getIcon(side, meta);
+        }
 
-        return blockIcons[p_149691_2_];
     }
 
     @Override
@@ -78,5 +113,27 @@ public class BlockReactorBlock extends Block {
 
     public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
         return false;
+    }
+
+    @Override
+    public ISubmapManager getManager(IBlockAccess world, int x, int y, int z, int meta) {
+        switch (meta){
+            case 0:
+                return normalManager;
+            case 1:
+            default:
+                return glassManager;
+        }
+    }
+
+    @Override
+    public ISubmapManager getManager(int meta) {
+        switch (meta){
+            case 0:
+                return normalManager;
+            case 1:
+            default:
+                return glassManager;
+        }
     }
 }
