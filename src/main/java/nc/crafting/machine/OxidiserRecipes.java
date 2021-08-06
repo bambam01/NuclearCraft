@@ -62,5 +62,5 @@ public class OxidiserRecipes extends NCRecipeHelper {
 	
 	// public void oreDict(int oxyNum, String in, String out) {
 	// 	addRecipe(oreStack(in, 1), new ItemStack(NCItems.fuel, oxyNum, 35), oreStack(out, 1), new ItemStack(NCItems.fuel, oxyNum, 45));
-	// }
+	 }
 }
