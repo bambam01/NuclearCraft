@@ -1,5 +1,7 @@
 package nc.proxy;
 
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import nc.NuclearCraft;
 import nc.block.NCBlocks;
 import nc.entity.EntityAntimatterBombPrimed;
 //import nc.entity.EntityBrian;
@@ -44,10 +46,20 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.common.MinecraftForge;
+import team.chisel.ctmlib.CTMRenderer;
 
 public class ClientProxy extends CommonProxy {
 	
 public void registerRenderThings() {
+
+		System.out.println("----------------------------------------------------registering renderstuff");
+
+		//connected textures handler
+		ISimpleBlockRenderingHandler connectedTextureHandler = new CTMRenderer(RenderingRegistry.getNextAvailableRenderId());
+		NuclearCraft.connectedRenderID = connectedTextureHandler.getRenderId();
+		RenderingRegistry.registerBlockHandler(connectedTextureHandler);
+
 		//Nuclear Workspace
 		TileEntitySpecialRenderer render = new RenderNuclearWorkspace();
 		ClientRegistry.bindTileEntitySpecialRenderer(TileNuclearWorkspace.class, render);

@@ -2,6 +2,8 @@ package nc;
 
 import java.io.File;
 
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import nc.block.NCBlocks;
 import nc.block.accelerator.BlockSuperElectromagnet;
 import nc.block.accelerator.BlockSupercooler;
@@ -245,11 +247,14 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.GameRegistry;
+import team.chisel.ctmlib.CTMRenderer;
 
 @Mod(modid = NuclearCraft.modid, version = NuclearCraft.version)
 
 public class NuclearCraft {
+	public static int connectedRenderID;
 	public static final String modid = "NuclearCraft";
+	public static final String textureid = "NC";
 	public static final String version = "1.9f";
 	
 	public static final CreativeTabs tabNC = new CreativeTabs("tabNC") {
@@ -703,6 +708,8 @@ public class NuclearCraft {
 		fusionConfig.load();
 		acceleratorConfig.load();
 		toolConfig.load();
+
+
 		
 		workspace = config.getBoolean("If disabled, all crafting recipes will be vanilla crafting table recipes, and the Heavy Duty Workspace will be disabled", "!: Enable Heavy Duty Workspace", true, "");
 		workspaceShiftClick = config.getBoolean("If enabled, shift clicking items in the Heavy Duty Workspace will move items into the crafting grid", "!: Enable Shift Click into Workspace Grid", false, "");
@@ -2347,6 +2354,9 @@ public class NuclearCraft {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+
+
+
 		// Ores Ore Dictionary
 		OreDictionary.registerOre("oreUranium", new ItemStack(NCBlocks.blockOre, 1, 4));
 		OreDictionary.registerOre("oreCopper", new ItemStack(NCBlocks.blockOre, 1, 0));
