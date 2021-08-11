@@ -972,10 +972,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 								!find(reactorBlock, x0 -1, -y + 1, z0) && //check for blocks in front of the  corner
 								!find(reactorBlock, x0, -y + 1, z0 - 1) && //check for blocks on the left of the corner
 
-								find(reactorBlock, x0, -y + 1, z0 ) && //check if block above is casing
-								find(reactorBlock, x0, -y + 2, z0 ) && //check if block above is casing
-								find(reactorBlock, x0 + 1, -y + 1, z0 ) && //check if block above is casing
-								find(reactorBlock, x0, -y + 1, z0 + 1 ) && //check if block above is casing
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 1, z0 ) && //check if block above is casing
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 2, z0 ) && //check if block above is casing
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, -y + 1, z0 ) && //check if block above is casing
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 1, z0 + 1 ) && //check if block above is casing
 
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, -y + 1, z0 + 1) &&
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 2, z0 + 1) &&
@@ -1000,10 +1000,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 								!find(reactorBlock, x0, y0 -1, z -1) &&
 								!find(reactorBlock, x0 -1, y0, z - 1) &&
 
-								find(reactorBlock, x0, y0, z-1) &&
-								find(reactorBlock, x0, y0, z-2) &&
-								find(reactorBlock, x0, y0 + 1, z-1) &&
-								find(reactorBlock, x0 + 1, y0, z-1) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0, z-1) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0, z-2) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + 1, z-1) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0, z-1) &&
 
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + 1, z - 1) &&
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + 1, z - 2) &&
@@ -1028,10 +1028,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 								!find(reactorBlock, x0 + x - 1, y0, z0 - 1) &&
 								!find(reactorBlock, x0 + x - 1, y0 - 1, z0) &&
 
-								find(reactorBlock, x0+x-1,y0, z0 ) &&
-								find(reactorBlock, x0+x-1,y0 + 1, z0 ) &&
-								find(reactorBlock, x0+x-1,y0, z0 + 1 ) &&
-								find(reactorBlock, x0+x-2,y0, z0 ) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-1,y0, z0 ) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-1,y0 + 1, z0 ) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-1,y0, z0 + 1 ) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-2,y0, z0 ) &&
 
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + x - 1, y0 + 1, z0 + 1) &&
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + x -2, y0 + 1, z0) &&
@@ -1054,10 +1054,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 							find(reactorBlock, x1, y0, z1 + 1) ||
 							find(reactorBlock, x1 , y0 - 1, z1) ||
 
-							!find(reactorBlock, x1,y0, z1 ) ||
-							!find(reactorBlock, x1-1,y0, z1 ) ||
-							!find(reactorBlock, x1,y0, z1-1 ) ||
-							!find(reactorBlock, x1,y0+1, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1,y0, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1-1,y0, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1,y0, z1-1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1,y0+1, z1 ) ||
 
 							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1, y0 + 1, z1) ||
 							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 , y0 + 1, z1 -1) ||
@@ -1079,10 +1079,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 								!find(reactorBlock, x0 - 1, y0 + y -1, z0) &&
 								!find(reactorBlock, x0, y0 + y - 1, z0 - 1) &&
 
-								find(reactorBlock, x0, y0 + y - 1, z0) &&
-								find(reactorBlock, x0 + 1, y0 + y - 1, z0) &&
-								find(reactorBlock, x0, y0 + y - 1, z0 + 1) &&
-								find(reactorBlock, x0, y0 + y - 2, z0) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 1, z0) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + y - 1, z0) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 1, z0 + 1) &&
+								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 2, z0) &&
 
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + y - 1 , z0 + 1) &&
 								find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 2, z0 + 1) &&
@@ -1106,10 +1106,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 							find(reactorBlock, x0, y1, z1 + 1) ||
 							find(reactorBlock, x0 , y1 + 1, z1) ||
 
-							!find(reactorBlock, x0, y1, z1 ) ||
-							!find(reactorBlock, x0+1, y1, z1 ) ||
-							!find(reactorBlock, x0, y1-1, z1 ) ||
-							!find(reactorBlock, x0, y1, z1-1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+1, y1, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1-1, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1, z1-1 ) ||
 
 
 							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1 - 1, z1 - 1) ||
@@ -1127,10 +1127,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 							find(reactorBlock, x1, y1, z1 + 1) ||
 							find(reactorBlock, x0 , y1 + 1, z1) ||
 
-							!find(reactorBlock, x1, y1, z1 ) ||
-							!find(reactorBlock, x1-1, y1, z1 ) ||
-							!find(reactorBlock, x1, y1-1, z1 ) ||
-							!find(reactorBlock, x1, y1, z1-1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1-1, y1, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1-1, z1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z1-1 ) ||
 
 
 							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1 - 1, z1 - 1) ||
@@ -1149,10 +1149,10 @@ public class TileFissionReactorSteam extends TileSteamProducer {
 							find(reactorBlock, x1, y1, z0 - 1) ||
 							find(reactorBlock, x0 , y1 + 1, z0) ||
 
-							!find(reactorBlock, x1, y1, z0 ) ||
-							!find(reactorBlock, x1-1, y1, z0 ) ||
-							!find(reactorBlock, x1, y1-1, z0 ) ||
-							!find(reactorBlock, x1, y1, z0+1 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z0 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1-1, y1, z0 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1-1, z0 ) ||
+							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z0+1 ) ||
 
 
 							!find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1 - 1, z0 + 1) ||
