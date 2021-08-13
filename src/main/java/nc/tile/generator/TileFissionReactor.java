@@ -1,5 +1,6 @@
 package nc.tile.generator;
 
+import cofh.api.energy.IEnergyReceiver;
 import nc.NuclearCraft;
 import nc.block.NCBlocks;
 import nc.block.generator.BlockFissionReactor;
@@ -10,8 +11,14 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TileFissionReactor extends TileGeneratorInventory {
 
@@ -54,6 +61,10 @@ public class TileFissionReactor extends TileGeneratorInventory {
     public int MBNumber;
     public String problem = StatCollector.translateToLocal("gui.casingIncomplete");
     public String extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete");
+
+    private List<TileFissionReactorProxy> proxies = new ArrayList<>();
+
+    private final Block[] validCasing = {NCBlocks.reactorBlock, NCBlocks.fissionReactorGraphiteActive, NCBlocks.fissionReactorGraphiteIdle, NCBlocks.fissonReactorProxy};
 
     public TileFissionReactor() {
         super("fissionReactor", 25000000, 2);
@@ -124,6 +135,7 @@ public class TileFissionReactor extends TileGeneratorInventory {
             energy();
             overheat();
             addEnergy();
+            addEnergyFromProxies();
         }
         typeoffuelx();
         if (flag != flag1) {
@@ -132,6 +144,17 @@ public class TileFissionReactor extends TileGeneratorInventory {
         }
         markDirty();
         if (fueltime < 0) fueltime = 0;
+    }
+
+    private void addEnergyFromProxies() {
+        for (TileFissionReactorProxy proxy: proxies) {
+            for (ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
+                TileEntity tile = worldObj.getTileEntity(proxy.xCoord + side.offsetX, proxy.yCoord + side.offsetY, proxy.zCoord + side.offsetZ);
+                if (tile instanceof IEnergyReceiver) {
+                    storage.extractEnergy(((IEnergyReceiver)tile).receiveEnergy(side.getOpposite(), storage.extractEnergy(storage.getMaxEnergyStored(), true), false), false);
+                }
+            }
+        }
     }
 
     public void overheat() {
@@ -869,6 +892,26 @@ public class TileFissionReactor extends TileGeneratorInventory {
         return "(" + realcoords[0] + "," + realcoords[1] + "," + realcoords[2] + ")";
     }
 
+
+
+
+    private boolean find(Block[] blocks, int x, int y, int z){
+
+        int xc = xCoord;
+        int yc = yCoord + y;
+        int zc = zCoord;
+        Block checkBlock;
+
+        if (getBlockMetadata() == 4) checkBlock = worldObj.getBlock(xc + x, yc, zc + z);
+        else if (getBlockMetadata() == 2) checkBlock = worldObj.getBlock(xc - z, yc, zc + x);
+        else if (getBlockMetadata() == 5) checkBlock = worldObj.getBlock(xc - x, yc, zc - z);
+        else if (getBlockMetadata() == 3) checkBlock = worldObj.getBlock(xc + z, yc, zc - x);
+        else return false;
+
+        return Arrays.asList(blocks).contains(checkBlock);
+    }
+
+
     /**
      * get block at coordinate offset from controller
      * positive x is behind
@@ -924,6 +967,22 @@ public class TileFissionReactor extends TileGeneratorInventory {
         else return false;
     }
 
+    public void resetProxies(){
+        for (TileFissionReactorProxy proxy: proxies) {
+            proxy.setRealTileEntity(null);
+        }
+    }
+
+    private void addProxy(int x, int y, int z){
+        int[] realCoords = this.getRealBlock(x,y,z);
+        TileEntity tileEntity  = worldObj.getTileEntity(realCoords[0], realCoords[1], realCoords[2]);
+        if(tileEntity instanceof TileFissionReactorProxy){
+            TileFissionReactorProxy tileFissionReactorProxy =  (TileFissionReactorProxy) tileEntity;
+            tileFissionReactorProxy.setRealTileEntity(this);
+            proxies.add(tileFissionReactorProxy);
+        }
+    }
+
     private boolean checkStructure() {
         if (tickCount >= NuclearCraft.fissionUpdateRate) {
             int max_length = NuclearCraft.fissionMaxLength + 2;
@@ -932,7 +991,8 @@ public class TileFissionReactor extends TileGeneratorInventory {
             Block graphiteActive = NCBlocks.fissionReactorGraphiteActive;
             Block steamIdle = NCBlocks.fissionReactorSteamIdle;
             Block reactorSteamActive = NCBlocks.fissionReactorSteamActive;
-            boolean casintComplte = false;
+            Block energyProxy = NCBlocks.fissonReactorProxy;
+            boolean casintComplete = false;
             int rz = 0;
             int z0 = 0;
             int x0 = 0;
@@ -969,101 +1029,101 @@ public class TileFissionReactor extends TileGeneratorInventory {
                     if (!find(reactorBlock, 0, 1, -z) && !find(reactorBlock, 0, -1, -z) && (find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, 0, 0, -z + 1) || find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, 0, 1, -z + 1) || find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, 0, -1, -z + 1))) {
                         rz = max_length - z;
                         z0 = -z + 1;
-                        casintComplte = true;
+                        casintComplete = true;
                         break;
                     }
                 } else if (!find(reactorBlock, 0, 0, -z) && !find(reactorBlock, 1, 1, -z) && !find(reactorBlock, 1, -1, -z) && find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, 0, 0, -z + 1) && find(reactorBlock, 1, 0, -z) && find(reactorBlock, 1, 1, -z + 1) && find(reactorBlock, 1, -1, -z + 1)) {
                     rz = max_length - z;
                     z0 = -z + 1;
-                    casintComplte = true;
+                    casintComplete = true;
                     break;
                 }
             }
-            if (!casintComplte) {
+            if (!casintComplete) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_invalid_controller_location");
                 return false;
             }
-            casintComplte = false;
+            casintComplete = false;
 
             //bottom left front corner based on left front
             for (int y = 0; y <= max_length; y++) {
                 if (
-                        !find(reactorBlock, x0, -y , z0) && // no casing at current check location, if true this should be the bottom block for this corner
-                                !find(reactorBlock, x0 -1, -y + 1, z0) && //check for blocks in front of the  corner
-                                !find(reactorBlock, x0, -y + 1, z0 - 1) && //check for blocks on the left of the corner
+                        !find(validCasing, x0, -y , z0) && // no casing at current check location, if true this should be the bottom block for this corner
+                                !find(validCasing, x0 -1, -y + 1, z0) && //check for blocks in front of the  corner
+                                !find(validCasing, x0, -y + 1, z0 - 1) && //check for blocks on the left of the corner
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 1, z0 ) && //check if block above is casing
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 2, z0 ) && //check if block above is casing
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, -y + 1, z0 ) && //check if block above is casing
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 1, z0 + 1 ) && //check if block above is casing
+                                find(validCasing, x0, -y + 1, z0 ) && //check if block above is casing
+                                find(validCasing, x0, -y + 2, z0 ) && //check if block above is casing
+                                find(validCasing, x0 + 1, -y + 1, z0 ) && //check if block above is casing
+                                find(validCasing, x0, -y + 1, z0 + 1 ) && //check if block above is casing
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, -y + 1, z0 + 1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, -y + 2, z0 + 1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, -y + 2, z0)) {
+                                find(validCasing, x0 + 1, -y + 1, z0 + 1) &&
+                                find(validCasing, x0, -y + 2, z0 + 1) &&
+                                find(validCasing, x0 + 1, -y + 2, z0)) {
                     y0 = -y + 1;
-                    casintComplte = true;
+                    casintComplete = true;
                     break;
                 }
             }
-            if (!casintComplte) {
+            if (!casintComplete) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_left_front_corner");
                 return false;
             }
-            casintComplte = false;
+            casintComplete = false;
 
             //bottom front right corner check
             for (int z = 0; z <= rz; z++) {
                 if (
-                        !find(reactorBlock, x0, y0, z) &&
-                                !find(reactorBlock, x0, y0 -1, z -1) &&
-                                !find(reactorBlock, x0 -1, y0, z - 1) &&
+                        !find(validCasing, x0, y0, z) &&
+                                !find(validCasing, x0, y0 -1, z -1) &&
+                                !find(validCasing, x0 -1, y0, z - 1) &&
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0, z-1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0, z-2) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + 1, z-1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0, z-1) &&
+                                find(validCasing, x0, y0, z-1) &&
+                                find(validCasing, x0, y0, z-2) &&
+                                find(validCasing, x0, y0 + 1, z-1) &&
+                                find(validCasing, x0 + 1, y0, z-1) &&
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + 1, z - 1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + 1, z - 2) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + 1, z -1)) {
+                                find(validCasing, x0 + 1, y0 + 1, z - 1) &&
+                                find(validCasing, x0, y0 + 1, z - 2) &&
+                                find(validCasing, x0 + 1, y0 + 1, z -1)) {
                     z1 = z - 1;
-                    casintComplte = true;
+                    casintComplete = true;
                     break;
                 }
             }
-            if (!casintComplte) {
+            if (!casintComplete) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_right_front_corner");
                 return false;
             }
-            casintComplte = false;
+            casintComplete = false;
 
             // back bottom left corner check
             for (int x = 0; x <= max_length; x++) {
                 if (
-                        !find(reactorBlock, x0 + x, y0, z0) &&
-                                !find(reactorBlock, x0 + x - 1, y0, z0 - 1) &&
-                                !find(reactorBlock, x0 + x - 1, y0 - 1, z0) &&
+                        !find(validCasing, x0 + x, y0, z0) &&
+                                !find(validCasing, x0 + x - 1, y0, z0 - 1) &&
+                                !find(validCasing, x0 + x - 1, y0 - 1, z0) &&
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-1,y0, z0 ) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-1,y0 + 1, z0 ) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-1,y0, z0 + 1 ) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+x-2,y0, z0 ) &&
+                                find(validCasing, x0+x-1,y0, z0 ) &&
+                                find(validCasing, x0+x-1,y0 + 1, z0 ) &&
+                                find(validCasing, x0+x-1,y0, z0 + 1 ) &&
+                                find(validCasing, x0+x-2,y0, z0 ) &&
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + x - 1, y0 + 1, z0 + 1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + x -2, y0 + 1, z0) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + x - 2, y0, z0 + 1)) {
+                                find(validCasing, x0 + x - 1, y0 + 1, z0 + 1) &&
+                                find(validCasing, x0 + x -2, y0 + 1, z0) &&
+                                find(validCasing, x0 + x - 2, y0, z0 + 1)) {
                     x1 = x0 + x -1;
-                    casintComplte = true;
+                    casintComplete = true;
                     break;
                 }
             }
-            if (!casintComplte) {
+            if (!casintComplete) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_left_back_corner");
@@ -1076,14 +1136,14 @@ public class TileFissionReactor extends TileGeneratorInventory {
                             find(reactorBlock, x1, y0, z1 + 1) ||
                             find(reactorBlock, x1 , y0 - 1, z1) ||
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1,y0, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1-1,y0, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1,y0, z1-1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1,y0+1, z1 ) ||
+                            !find(validCasing, x1,y0, z1 ) ||
+                            !find(validCasing, x1-1,y0, z1 ) ||
+                            !find(validCasing, x1,y0, z1-1 ) ||
+                            !find(validCasing, x1,y0+1, z1 ) ||
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1, y0 + 1, z1) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 , y0 + 1, z1 -1) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 -1, y0, z1 -1)) {
+                            !find(validCasing, x1 - 1, y0 + 1, z1) ||
+                            !find(validCasing, x1 , y0 + 1, z1 -1) ||
+                            !find(validCasing, x1 -1, y0, z1 -1)) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom_right_back_corner");
@@ -1092,29 +1152,29 @@ public class TileFissionReactor extends TileGeneratorInventory {
 
 
 
-            casintComplte = false;
+            casintComplete = false;
 
             //left front top corner check
             for (int y = 0; y <= max_length; y++) {
                 if (
-                        !find(reactorBlock, x0, y0 + y, z0) &&
-                                !find(reactorBlock, x0 - 1, y0 + y -1, z0) &&
-                                !find(reactorBlock, x0, y0 + y - 1, z0 - 1) &&
+                        !find(validCasing, x0, y0 + y, z0) &&
+                                !find(validCasing, x0 - 1, y0 + y -1, z0) &&
+                                !find(validCasing, x0, y0 + y - 1, z0 - 1) &&
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 1, z0) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + y - 1, z0) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 1, z0 + 1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 2, z0) &&
+                                find(validCasing, x0, y0 + y - 1, z0) &&
+                                find(validCasing, x0 + 1, y0 + y - 1, z0) &&
+                                find(validCasing, x0, y0 + y - 1, z0 + 1) &&
+                                find(validCasing, x0, y0 + y - 2, z0) &&
 
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + y - 1 , z0 + 1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y0 + y - 2, z0 + 1) &&
-                                find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y0 + y - 2, z0)) {
+                                find(validCasing, x0 + 1, y0 + y - 1 , z0 + 1) &&
+                                find(validCasing, x0, y0 + y - 2, z0 + 1) &&
+                                find(validCasing, x0 + 1, y0 + y - 2, z0)) {
                     y1 = y0 + y -1;
-                    casintComplte = true;
+                    casintComplete = true;
                     break;
                 }
             }
-            if (!casintComplte) {
+            if (!casintComplete) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_left_front_corner");
@@ -1128,15 +1188,15 @@ public class TileFissionReactor extends TileGeneratorInventory {
                             find(reactorBlock, x0, y1, z1 + 1) ||
                             find(reactorBlock, x0 , y1 + 1, z1) ||
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0+1, y1, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1-1, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1, z1-1 ) ||
+                            !find(validCasing, x0, y1, z1 ) ||
+                            !find(validCasing, x0+1, y1, z1 ) ||
+                            !find(validCasing, x0, y1-1, z1 ) ||
+                            !find(validCasing, x0, y1, z1-1 ) ||
 
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0, y1 - 1, z1 - 1) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1 , y1 - 1, z1) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x0 + 1, y1, z1 -1)) {
+                            !find(validCasing, x0, y1 - 1, z1 - 1) ||
+                            !find(validCasing, x0 + 1 , y1 - 1, z1) ||
+                            !find(validCasing, x0 + 1, y1, z1 -1)) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_right_front_corner");
@@ -1149,15 +1209,15 @@ public class TileFissionReactor extends TileGeneratorInventory {
                             find(reactorBlock, x1, y1, z1 + 1) ||
                             find(reactorBlock, x0 , y1 + 1, z1) ||
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1-1, y1, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1-1, z1 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z1-1 ) ||
+                            !find(validCasing, x1, y1, z1 ) ||
+                            !find(validCasing, x1-1, y1, z1 ) ||
+                            !find(validCasing, x1, y1-1, z1 ) ||
+                            !find(validCasing, x1, y1, z1-1 ) ||
 
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1 - 1, z1 - 1) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1 , y1 - 1, z1) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1, y1, z1 -1)) {
+                            !find(validCasing, x1, y1 - 1, z1 - 1) ||
+                            !find(validCasing, x1 - 1 , y1 - 1, z1) ||
+                            !find(validCasing, x1 - 1, y1, z1 -1)) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_right_back_corner");
@@ -1171,15 +1231,15 @@ public class TileFissionReactor extends TileGeneratorInventory {
                             find(reactorBlock, x1, y1, z0 - 1) ||
                             find(reactorBlock, x0 , y1 + 1, z0) ||
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z0 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1-1, y1, z0 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1-1, z0 ) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1, z0+1 ) ||
+                            !find(validCasing, x1, y1, z0 ) ||
+                            !find(validCasing, x1-1, y1, z0 ) ||
+                            !find(validCasing, x1, y1-1, z0 ) ||
+                            !find(validCasing, x1, y1, z0+1 ) ||
 
 
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1, y1 - 1, z0 + 1) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1 , y1 - 1, z0) ||
-                            !find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x1 - 1, y1, z0 + 1)) {
+                            !find(validCasing, x1, y1 - 1, z0 + 1) ||
+                            !find(validCasing, x1 - 1 , y1 - 1, z0) ||
+                            !find(validCasing, x1 - 1, y1, z0 + 1)) {
                 complete = 0;
                 problem = StatCollector.translateToLocal("gui.casingIncomplete");
                 extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top_left_back_corner");
@@ -1189,7 +1249,7 @@ public class TileFissionReactor extends TileGeneratorInventory {
 
 
 
-            casintComplte = false;
+            casintComplete = false;
 
             //check to see if coordinates make sense
             if ((x0 > 0 || x1 < 0) || (y0 > 0 || y1 < 0) || (z0 > 0 || z1 < 0) || x1 - x0 < 1 || y1 - y0 < 1 || z1 - z0 < 1) {
@@ -1220,16 +1280,24 @@ public class TileFissionReactor extends TileGeneratorInventory {
             for (int z = z0 ; z <= z1; z++) {
                 for (int x = x0; x <= x1; x++) {
                     if (!find(reactorBlock, x, y0, z) && !(x == 0 && y0 == 0 && z == 0)) {
-                        problem = StatCollector.translateToLocal("gui.casingIncomplete");
-                        extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom") + ": " + getRealBlockString(x,y0,z);
-                        complete = 0;
-                        return false;
+                        if(find(energyProxy, x, y0, z)){
+                            addProxy(x, y0, z);
+                        }else {
+                            problem = StatCollector.translateToLocal("gui.casingIncomplete");
+                            extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_bottom") + ": " + getRealBlockString(x, y0, z);
+                            complete = 0;
+                            return false;
+                        }
                     }
                     if (!find(reactorBlock, x, y1, z) && !(x == 0 && y1 == 0 && z == 0)) {
-                        problem = StatCollector.translateToLocal("gui.casingIncomplete");
-                        extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top") + ": " + getRealBlockString(x,y1,z);
-                        complete = 0;
-                        return false;
+                        if(find(energyProxy, x, y1, z)){
+                            addProxy(x, y1, z);
+                        }else {
+                            problem = StatCollector.translateToLocal("gui.casingIncomplete");
+                            extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_top") + ": " + getRealBlockString(x, y1, z);
+                            complete = 0;
+                            return false;
+                        }
                     }
                 }
             }
@@ -1240,32 +1308,48 @@ public class TileFissionReactor extends TileGeneratorInventory {
                 //check left and right side
                 for (int x = x0; x <= x1; x++) {
                     if (!find(reactorBlock, x, y, z0) && !(x == 0 && y == 0 && z0 == 0)) {
-                        problem = StatCollector.translateToLocal("gui.casingIncomplete");
-                        extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_left") + ": " + getRealBlockString(x,y,z0);
-                        complete = 0;
-                        return false;
+                        if(find(energyProxy, x, y, z0)){
+                            addProxy(x, y, z0);
+                        }else {
+                            problem = StatCollector.translateToLocal("gui.casingIncomplete");
+                            extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_left") + ": " + getRealBlockString(x, y, z0);
+                            complete = 0;
+                            return false;
+                        }
                     }
                     if (!find(reactorBlock, x, y, z1) && !(x == 0 && y == 0 && z1 == 0)) {
-                        problem = StatCollector.translateToLocal("gui.casingIncomplete");
-                        extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_right") + ": " + getRealBlockString(x,y,z1);
-                        complete = 0;
-                        return false;
+                        if(find(energyProxy, x, y, z1)){
+                            addProxy(x, y, z1);
+                        }else {
+                            problem = StatCollector.translateToLocal("gui.casingIncomplete");
+                            extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_right") + ": " + getRealBlockString(x, y, z1);
+                            complete = 0;
+                            return false;
+                        }
                     }
                 }
 
                 //check front and back
                 for (int z = z0 + 1; z <= z1 - 1; z++) {
                     if (!find(reactorBlock, x0, y, z) && !(x0 == 0 && y == 0 && z == 0)) {
-                        problem = StatCollector.translateToLocal("gui.casingIncomplete");
-                        extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_front") + ": " + getRealBlockString(x0,y,z);
-                        complete = 0;
-                        return false;
+                        if(find(energyProxy, x0, y, z)){
+                            addProxy(x0, y, z);
+                        }else {
+                            problem = StatCollector.translateToLocal("gui.casingIncomplete");
+                            extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_front") + ": " + getRealBlockString(x0, y, z);
+                            complete = 0;
+                            return false;
+                        }
                     }
                     if (!find(reactorBlock, x1, y, z) && !(x1 == 0 && y == 0 && z == 0)) {
-                        problem = StatCollector.translateToLocal("gui.casingIncomplete");
-                        extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_back") + ": " + getRealBlockString(x1,y,z);
-                        complete = 0;
-                        return false;
+                        if(find(energyProxy, x1, y, z)){
+                            addProxy(x1, y, z);
+                        }else {
+                            problem = StatCollector.translateToLocal("gui.casingIncomplete");
+                            extendedproblem = StatCollector.translateToLocal("gui.casingIncomplete_back") + ": " + getRealBlockString(x1, y, z);
+                            complete = 0;
+                            return false;
+                        }
                     }
                 }
             }
@@ -1273,7 +1357,7 @@ public class TileFissionReactor extends TileGeneratorInventory {
             for (int z = z0 + 1; z <= z1 - 1; z++) {
                 for (int x = x0 + 1; x <= x1 - 1; x++) {
                     for (int y = y0 + 1; y <= y1 - 1; y++) {
-                        if (find(reactorBlock, graphiteIdle, graphiteActive, steamIdle, reactorSteamActive, x, y, z)) {
+                        if (find(validCasing, x, y, z)) {
                             problem = StatCollector.translateToLocal("gui.casingIncomplete");
                             extendedproblem = StatCollector.translateToLocal("gui.casingInInterior")  + ": " + getRealBlockString(x,y,z);
                             complete = 0;

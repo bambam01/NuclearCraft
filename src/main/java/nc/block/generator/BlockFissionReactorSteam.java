@@ -195,6 +195,11 @@ public class BlockFissionReactorSteam extends BlockContainer {
 				world.func_147453_f(x, y, z, oldBlockID);
 			}
 		}
+
+		TileEntity tileEntity = world.getTileEntity(x,y,z);
+		if(tileEntity instanceof TileFissionReactorSteam){
+			((TileFissionReactorSteam) tileEntity).resetProxies();
+		}
 		
 		super.breakBlock(world, x, y, z, oldBlockID, oldMetadata);
 	}
