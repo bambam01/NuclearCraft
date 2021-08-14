@@ -41,6 +41,7 @@ public class NCBlocks {
 	public static Block fissionReactorGraphiteActive;
 	public static Block fissionReactorSteamIdle;
 	public static Block fissionReactorSteamActive;
+	public static Block fissonReactorProxy;
 	public static Block nuclearWorkspace;
 	public static Block fusionReactor;
 	public static Block fusionReactorBlock;

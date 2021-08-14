@@ -5,6 +5,7 @@ import java.util.Random;
 import nc.NuclearCraft;
 import nc.block.NCBlocks;
 import nc.tile.generator.TileFissionReactor;
+import nc.tile.generator.TileFissionReactorSteam;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -195,7 +196,12 @@ public class BlockFissionReactor extends BlockContainer {
 				world.func_147453_f(x, y, z, oldBlockID);
 			}
 		}
-		
+
+		TileEntity tileEntity = world.getTileEntity(x,y,z);
+		if(tileEntity instanceof TileFissionReactor){
+			((TileFissionReactor) tileEntity).resetProxies();
+		}
+
 		super.breakBlock(world, x, y, z, oldBlockID, oldMetadata);
 	}
 	
